@@ -3,79 +3,54 @@ tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
 tap 'homebrew/bundle'
-tap 'nicoverbruggen/homebrew-cask'
-tap 'stripe/stripe-cli'
+tap "homebrew/core"
+tap "homebrew/services"
 
-# Binaries
-brew 'awscli'
+tap "hashicorp/tap"
+tap "microsoft/git"
+tap "romkatv/powerlevel10k"
+
+#tap "carlocab/personal"
+#tap "sass/sass"
+#tap "shivammathur/php"
+#tap "weaveworks/tap"
+
+# set arguments for all 'brew install --cask' commands
+#cask_args appdir: "~/Applications" #, require_sha: true
+
+
 brew 'bash' # Latest Bash version
 brew 'bat' # Used for spatie/visit
 brew 'coreutils' # Those that come with macOS are outdated
-brew 'ffmpeg'
+brew "glib"
+brew "cask"
+brew "ccat"
+brew "curl"
+brew "libarchive"
+brew "fzf"
+brew "python@3.11"
+brew "git"
 brew 'gh'
-brew 'git'
 brew 'grep'
-brew 'httpie'
-brew 'jq' # Used for spatie/visit
-brew 'mackup'
-brew 'mas' # Mac App Store manager
-brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
-brew 'stripe/stripe-cli/stripe'
-brew 'stripe/stripe-mock/stripe-mock'
-brew 'svn' # Needed to install fonts
+brew "gnu-sed"
+brew "htop"
+brew "mackup"
+brew "mas" # Mac App Store manager
+brew "p7zip"
+brew "telnet"
+brew "tldr"
+brew "tmux"
+brew "tree"
+brew "watch"
+brew "wget"
+brew "wtfutil"
+brew "zsh"
+brew "zsh-completions"
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
 
-# Spatie Medialibrary
-brew 'jpegoptim'
-brew 'optipng'
-brew 'pngquant'
-brew 'svgo'
-brew 'gifsicle'
+brew "romkatv/powerlevel10k/powerlevel10k"
 
-# Development
-brew 'php'
-brew 'php@8.0'
-brew 'php@7.4'
-brew 'composer'
-brew 'imagemagick'
-brew 'meilisearch'
-brew 'mysql'
-brew 'nginx'
-brew 'node'
-brew 'redis'
-brew 'yarn'
-
-# Apps
-cask '1password'
-cask 'caffeine'
-cask 'dbngin'
-cask 'discord'
-cask 'docker'
-cask 'figma'
-cask 'firefox'
-cask 'github'
-cask 'google-chrome'
-cask 'helo'
-cask 'imageoptim'
-cask 'insomnia'
-cask 'pastebot'
-cask 'phpmon'
-cask 'ray'
-cask 'readdle-spark'
-cask 'screenflow'
-cask 'slack'
-cask 'tableplus'
-cask 'the-unarchiver'
-cask 'tinkerwell'
-cask 'transmit'
-cask 'tunnelbear'
-cask 'tuple'
-cask 'visual-studio-code'
-cask 'zoom'
-cask 'zwift'
-
-# Quicklook
-cask 'qlmarkdown'
-cask 'quicklook-json'
 
 # Fonts
 cask 'font-lato'
@@ -85,12 +60,116 @@ cask 'font-source-code-pro-for-powerline'
 cask 'font-source-code-pro'
 cask 'font-source-sans-pro'
 cask 'font-source-serif-pro'
+cask 'font-meslo-for-powerline'
+#cask 'fort-meslo-lg-nerd-font'
+
+# Important Tools
+cask "lulu"
+cask "monitorcontrol"
+cask 'dropbox'
+#cask 'nozbe'
+cask 'signal'
+cask 'spotify'
+cask 'rectangle'
+cask 'iterm2'
+cask 'brave-browser'
+cask 'commander-one'
+cask 'deepl'
+#cask 'discord' # 'swiftcord'
+cask 'swiftcord'
+cask 'adobe-creative-cloud'
+cask '1password'
+cask '1password-cli'
 
 # Mac App Store
-mas 'Byword', id: 420212497
+mas "AdBlock Pro", id: 1018301773
+mas "Disk Speed Test", id: 425264550
 mas 'Giphy Capture', id: 668208984
 mas 'Keynote', id: 409183694
-mas 'Numbers', id: 409203825
-mas 'Speedtest', id: 1153157709
-mas 'Spring', id: 1508706541
-mas 'Things', id: 904280696
+mas "Kindle", id: 405399194
+mas "Nozbe Personal", id: 508957583
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Sync Folders", id: 530573877
+mas "Tab Space", id: 1473726602
+mas "1Password for Safari", id:1569813296
+
+
+# Optional Tools
+#brew "carlocab/personal/unrar"
+#brew "libass"
+#brew "tesseract"
+#brew "ffmpeg"
+#brew "gcalcli"
+#brew "glow"
+#brew "lastpass-cli"
+#brew "libfido2"
+#brew "mplayer"
+#brew "mps-youtube"
+#brew "spotify-tui"
+#cask "lunar"
+#cask "mpv"
+#cask "obsidian"
+#cask "qnapi"
+#cask "raindropio"
+#cask "via"
+
+# Dev Tools
+brew 'jq'
+#brew 'ffmpeg'
+#brew 'jq' # Used for spatie/visit
+#brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
+#brew "sass/sass/sass"
+#brew "shivammathur/php/php"
+#brew "harfbuzz"
+#brew "pango"
+#brew "freetds"
+#brew "go"
+#brew "gobject-introspection"
+#brew "httpd"
+#brew "libpq"
+#brew "mysql"
+#brew "nghttp2"
+#brew "ncdu"
+#brew "node"
+#brew "rust"
+#brew "wimlib"
+
+# DevOps Tools
+#brew 'awscli'
+#brew "aws-iam-authenticator"
+#brew "openssl@3"
+#brew "aircrack-ng"
+#brew "apr-util"
+#brew "argocd"
+#brew "unbound"
+#brew "gnutls"
+#brew "emacs"
+#brew "cmake"
+#brew "openldap"
+#brew "ctop"
+#brew "librsvg"
+#brew "graphviz"
+#brew "helm"
+#brew "hyperkit", link: false
+#brew "jless"
+#brew "jq"
+#brew "kops"
+#brew "krb5"
+#brew "kubectx"
+#brew "minikube"
+#brew "nmap"
+#brew "shellcheck"
+#brew "terraform"
+#brew "hashicorp/tap/consul"
+#brew "hashicorp/tap/terraform-ls"
+#brew "weaveworks/tap/eksctl"
+#cask "git-credential-manager-core"
+#cask "docker"
+#cask "insomnia"
+#cask "postman"
+#cask "thonny"
+#cask "vagrant"
+#cask "virtualbox"
+
+
