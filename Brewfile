@@ -2,6 +2,7 @@
 tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
+tap 'homebrew/cask-drivers'
 tap 'homebrew/bundle'
 tap "homebrew/core"
 tap "homebrew/services"
@@ -20,8 +21,12 @@ tap "romkatv/powerlevel10k"
 
 
 brew 'bash' # Latest Bash version
-brew 'bat' # Used for spatie/visit
+brew 'bash-completion@2'
+brew 'bat' # cat alternative
 brew 'coreutils' # Those that come with macOS are outdated
+brew 'moreutils' # some useful utilities like 'sponge'
+brew 'findutils' # GNU 'find', 'locate', 'updatedb', and x'args', 'g'-prefixed.
+
 brew "glib"
 brew "cask"
 brew "ccat"
@@ -63,6 +68,9 @@ cask 'font-source-serif-pro'
 cask 'font-meslo-for-powerline'
 #cask 'fort-meslo-lg-nerd-font'
 
+# Drivers
+cask 'logi-options-plus'
+
 # Important Tools
 cask "lulu"
 cask "monitorcontrol"
@@ -75,11 +83,18 @@ cask 'iterm2'
 cask 'brave-browser'
 cask 'commander-one'
 cask 'deepl'
-#cask 'discord' # 'swiftcord'
-cask 'swiftcord'
+cask 'discord' # 'swiftcord'
+#cask 'swiftcord'
 cask 'adobe-creative-cloud'
 cask '1password'
 cask '1password-cli'
+cask 'freedom'
+cask 'notion'
+cask 'alfred'
+cask 'raycast'
+cask 'cron'
+cask 'keyboard-maestro'
+cask 'karabiner-elements'
 
 # Mac App Store
 mas "AdBlock Pro", id: 1018301773
@@ -93,10 +108,10 @@ mas "Pages", id: 409201541
 mas "Sync Folders", id: 530573877
 mas "Tab Space", id: 1473726602
 mas "1Password for Safari", id:1569813296
-
+mas "Accelerate for Safari" id:1459809092
 
 # Optional Tools
-#brew "carlocab/personal/unrar"
+brew "carlocab/personal/unrar"
 #brew "libass"
 #brew "tesseract"
 #brew "ffmpeg"
