@@ -53,7 +53,6 @@ brew "zsh"
 brew "zsh-completions"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
-
 brew "romkatv/powerlevel10k/powerlevel10k"
 
 
@@ -72,36 +71,27 @@ cask 'font-meslo-for-powerline'
 cask 'logi-options-plus'
 
 # Important Tools
-cask "lulu"
 cask "monitorcontrol"
-cask 'dropbox'
-#cask 'nozbe'
-cask 'signal'
-cask 'spotify'
+cask 'nozbe'
 cask 'rectangle'
 cask 'iterm2'
-cask 'brave-browser'
 cask 'commander-one'
 cask 'deepl'
-cask 'discord' # 'swiftcord'
-#cask 'swiftcord'
-cask 'adobe-creative-cloud'
+cask 'discord' 
 cask '1password'
 cask '1password-cli'
-cask 'freedom'
 cask 'notion'
-cask 'alfred'
 cask 'raycast'
 cask 'cron'
 cask 'keyboard-maestro'
 cask 'karabiner-elements'
 
 # Mac App Store
-mas "AdBlock Pro", id: 1018301773
-mas "Disk Speed Test", id: 425264550
+#mas "AdBlock Pro", id: 1018301773
+#mas "Disk Speed Test", id: 425264550
 mas 'Giphy Capture', id: 668208984
 mas 'Keynote', id: 409183694
-mas "Kindle", id: 405399194
+#mas "Kindle", id: 405399194
 mas "Nozbe Personal", id: 508957583
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
@@ -122,6 +112,13 @@ brew "carlocab/personal/unrar"
 #brew "mplayer"
 #brew "mps-youtube"
 #brew "spotify-tui"
+#cask "lulu"
+#cask 'dropbox'
+cask 'signal'
+cask 'spotify'
+cask 'adobe-creative-cloud'
+cask 'freedom'
+cask 'alfred'
 #cask "lunar"
 #cask "mpv"
 #cask "obsidian"
