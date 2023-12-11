@@ -4,12 +4,12 @@ tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
 tap 'homebrew/cask-drivers'
 tap 'homebrew/bundle'
-tap "homebrew/core"
-tap "homebrew/services"
+tap 'homebrew/core'
+tap 'homebrew/services'
 
-tap "hashicorp/tap"
-tap "microsoft/git"
-tap "romkatv/powerlevel10k"
+tap 'hashicorp/tap'
+tap 'microsoft/git'
+tap 'romkatv/powerlevel10k'
 
 #tap "carlocab/personal"
 #tap "sass/sass"
@@ -27,33 +27,36 @@ brew 'coreutils' # Those that come with macOS are outdated
 brew 'moreutils' # some useful utilities like 'sponge'
 brew 'findutils' # GNU 'find', 'locate', 'updatedb', and x'args', 'g'-prefixed.
 
-brew "glib"
-brew "cask"
-brew "ccat"
-brew "curl"
-brew "libarchive"
-brew "fzf"
-brew "python@3.11"
-brew "git"
+brew 'glib'
+brew 'cask'
+brew 'ccat'
+brew 'curl'
+brew 'libarchive'
+brew 'fping'
+brew 'fzf'
+brew 'python@3.11'
+brew 'git'
 brew 'gh'
 brew 'grep'
-brew "gnu-sed"
-brew "htop"
-brew "mackup"
-brew "mas" # Mac App Store manager
-brew "p7zip"
-brew "telnet"
-brew "tldr"
-brew "tmux"
-brew "tree"
-brew "watch"
-brew "wget"
-brew "wtfutil"
-brew "zsh"
-brew "zsh-completions"
-brew "zsh-autosuggestions"
-brew "zsh-syntax-highlighting"
-brew "romkatv/powerlevel10k/powerlevel10k"
+brew 'gnu-sed'
+brew 'htop'
+brew 'mackup'
+brew 'mas' # Mac App Store manager
+brew 'p7zip'
+brew 'telnet'
+brew 'tldr'
+brew 'tmux'
+brew 'tree'
+brew 'watch'
+brew 'wget'
+brew 'wtfutil'
+brew 'zsh'
+brew 'zsh-completions'
+brew 'zsh-autosuggestions'
+brew 'zsh-syntax-highlighting'
+
+brew 'romkatv/powerlevel10k/powerlevel10k'
+
 
 
 # Fonts
@@ -72,7 +75,11 @@ cask 'logi-options-plus'
 
 # Important Tools
 cask "monitorcontrol"
+cask 'dropbox'
+#cask 'todoist'
 cask 'nozbe'
+cask 'signal'
+cask 'spotify'
 cask 'rectangle'
 cask 'iterm2'
 cask 'commander-one'
@@ -85,6 +92,8 @@ cask 'raycast'
 cask 'cron'
 cask 'keyboard-maestro'
 cask 'karabiner-elements'
+cask 'cyberduck'
+cask 'hazel' #test
 
 # Mac App Store
 #mas "AdBlock Pro", id: 1018301773
@@ -99,9 +108,12 @@ mas "Sync Folders", id: 530573877
 mas "Tab Space", id: 1473726602
 mas "1Password for Safari", id:1569813296
 mas "Accelerate for Safari" id:1459809092
+mas "Instapaper" id:288545208
+mas "Save to Pocket", id: 1477385213
+mas "Save to Reader", id: 1640236961
 
 # Optional Tools
-brew "carlocab/personal/unrar"
+#brew "carlocab/personal/unrar"
 #brew "libass"
 #brew "tesseract"
 #brew "ffmpeg"
@@ -125,11 +137,18 @@ cask 'alfred'
 #cask "qnapi"
 #cask "raindropio"
 #cask "via"
+cask 'postman'
+#cask 'surfshark'
+cask 'rocket'
+cask 'vlc'
+#cask 'youtube-dl'
+cask 'zed'
+cask 'zoom'
 
 # Dev Tools
+cask 'visual-studio-code'
 brew 'jq'
 #brew 'ffmpeg'
-#brew 'jq' # Used for spatie/visit
 #brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
 #brew "sass/sass/sass"
 #brew "shivammathur/php/php"
