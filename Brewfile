@@ -143,7 +143,9 @@ cask 'zoom'
 #cask "via"
 #cask 'surfshark'
 #cask 'youtube-dl'
-
+brew 'smudge/smudge/nightlight'
+#brew 'bluetoothconnector'
+brew 'blueutil'
 # Dev Tools
 brew 'jq'
 #brew 'ffmpeg'
