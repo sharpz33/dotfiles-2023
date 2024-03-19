@@ -1,10 +1,10 @@
 # Taps
-tap 'homebrew/cask'
+#tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
-tap 'homebrew/homebrew-core'
+#tap 'homebrew/homebrew-core'
 tap 'homebrew/bundle'
-tap 'homebrew/core'
+#tap 'homebrew/core'
 tap 'homebrew/services'
 
 tap 'hashicorp/tap'
@@ -85,7 +85,7 @@ cask 'freedom'
 cask 'notion'
 cask 'alfred'
 cask 'raycast'
-cask 'cron'
+cask 'notion-calendar'
 cask 'keyboard-maestro'
 cask 'karabiner-elements'
 cask 'cyberduck'
@@ -97,7 +97,7 @@ mas 'Giphy Capture', id: 668208984
 mas 'iA Writer', id: 775737590
 mas 'Keynote', id: 409183694
 mas "Kindle", id: 405399194
-#mas "Nozbe Personal", id: 508957583
+mas "Nozbe Personal", id: 508957583
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Sync Folders", id: 530573877
@@ -110,8 +110,9 @@ mas 'Accelerate for Safari', id: 1459809092
 
 # Optional Tools
 cask 'dropbox'
-cask 'nozbe'
+#cask 'nozbe'
 cask 'signal'
+cask 'telegram'
 cask 'spotify'
 cask 'discord' 
 cask 'adobe-creative-cloud'
@@ -146,6 +147,8 @@ cask 'zoom'
 brew 'smudge/smudge/nightlight'
 #brew 'bluetoothconnector'
 brew 'blueutil'
+cask 'wacom-tablet'
+
 # Dev Tools
 brew 'jq'
 #brew 'ffmpeg'
