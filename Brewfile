@@ -140,7 +140,7 @@ cask 'zoom'
 #cask "lunar"
 #cask "mpv"
 #cask "qnapi"
-#cask "raindropio"
+cask "raindropio"
 #cask "via"
 #cask 'surfshark'
 #cask 'youtube-dl'
@@ -166,8 +166,9 @@ brew 'jq'
 #brew "nghttp2"
 #brew "ncdu"
 #brew "node"
-#brew "rust"
+brew "rust"
 #brew "wimlib"
+brew "protobuf"
 
 # DevOps Tools
 #brew 'awscli'
@@ -179,7 +180,7 @@ brew 'jq'
 #brew "unbound"
 #brew "gnutls"
 #brew "emacs"
-#brew "cmake"
+brew "cmake"
 #brew "openldap"
 #brew "ctop"
 #brew "librsvg"
