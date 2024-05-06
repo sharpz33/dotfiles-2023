@@ -143,7 +143,7 @@ cask 'zoom'
 cask "raindropio"
 #cask "via"
 #cask 'surfshark'
-#cask 'youtube-dl'
+cask 'youtube-downloader'
 brew 'smudge/smudge/nightlight'
 #brew 'bluetoothconnector'
 brew 'blueutil'
