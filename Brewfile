@@ -113,6 +113,7 @@ cask 'dropbox'
 #cask 'nozbe'
 cask 'signal'
 cask 'telegram'
+cask 'todoist'
 cask 'spotify'
 cask 'discord' 
 cask 'adobe-creative-cloud'
@@ -147,7 +148,6 @@ cask 'youtube-downloader'
 brew 'smudge/smudge/nightlight'
 #brew 'bluetoothconnector'
 brew 'blueutil'
-cask 'wacom-tablet'
 
 # Dev Tools
 brew 'jq'
@@ -200,11 +200,18 @@ brew "cmake"
 #brew "hashicorp/tap/terraform-ls"
 #brew "weaveworks/tap/eksctl"
 #cask "git-credential-manager-core"
-#cask "docker"
+cask "docker"
+brew "colima"
 #cask "insomnia"
 #cask "postman"
 #cask "thonny"
 #cask "vagrant"
 #cask "virtualbox"
 
+#Photo tools
+cask "calibrite-profiler"
+cask 'wacom-tablet'
 
+# Design tools
+cask "sketch"
+cask "figma"
