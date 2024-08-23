@@ -1,16 +1,15 @@
 # Taps
-#tap 'homebrew/cask'
+tap 'homebrew/bundle'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
-#tap 'homebrew/homebrew-core'
-tap 'homebrew/bundle'
-#tap 'homebrew/core'
 tap 'homebrew/services'
+#tap 'homebrew/homebrew-core'
+#tap 'homebrew/core'
+#tap 'homebrew/cask'
 
 tap 'hashicorp/tap'
 tap 'microsoft/git'
 #tap 'romkatv/powerlevel10k'
-
 #tap "carlocab/personal"
 #tap "sass/sass"
 #tap "shivammathur/php"
@@ -18,7 +17,6 @@ tap 'microsoft/git'
 
 # set arguments for all 'brew install --cask' commands
 #cask_args appdir: "~/Applications" #, require_sha: true
-
 
 brew 'bash' # Latest Bash version
 brew 'bash-completion@2'
@@ -65,9 +63,9 @@ cask 'font-roboto'
 cask 'font-source-code-pro-for-powerline'
 cask 'font-source-code-pro'
 cask 'font-source-sans-3'
-#cask 'font-source-serif-pro'
 cask 'font-meslo-for-powerline'
 #cask 'fort-meslo-lg-nerd-font'
+#cask 'font-source-serif-pro'
 
 
 # Important Tools
@@ -91,8 +89,6 @@ cask 'karabiner-elements'
 cask 'cyberduck'
 
 # Mac App Store
-#mas "AdBlock Pro", id: 1018301773
-#mas "Disk Speed Test", id: 425264550
 mas 'Giphy Capture', id: 668208984
 mas 'iA Writer', id: 775737590
 mas 'Keynote', id: 409183694
@@ -107,10 +103,11 @@ mas 'Accelerate for Safari', id: 1459809092
 #mas "Instapaper', id:288545208
 #mas "Save to Pocket", id: 1477385213
 #mas "Save to Reader", id: 1640236961
+#mas "AdBlock Pro", id: 1018301773
+#mas "Disk Speed Test", id: 425264550
 
 # Optional Tools
 cask 'dropbox'
-#cask 'nozbe'
 cask 'signal'
 cask 'telegram'
 cask 'todoist'
@@ -121,12 +118,17 @@ cask 'hazel' #test
 cask "obsidian"
 cask 'setapp'
 cask 'postman'
-cask 'superhuman'
+cask "raindropio"
 cask 'rocket'
+cask 'superhuman'
 cask 'visual-studio-code'
 cask 'vlc'
+cask 'youtube-downloader'
 cask 'zed'
 cask 'zoom'
+brew 'blueutil'
+brew 'smudge/smudge/nightlight'
+#cask 'nozbe'
 #brew "carlocab/personal/unrar"
 #brew "libass"
 #brew "tesseract"
@@ -141,16 +143,14 @@ cask 'zoom'
 #cask "lunar"
 #cask "mpv"
 #cask "qnapi"
-cask "raindropio"
 #cask "via"
 #cask 'surfshark'
-cask 'youtube-downloader'
-brew 'smudge/smudge/nightlight'
 #brew 'bluetoothconnector'
-brew 'blueutil'
 
 # Dev Tools
 brew 'jq'
+brew "protobuf"
+brew "rust"
 #brew 'ffmpeg'
 #brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
 #brew "sass/sass/sass"
@@ -166,11 +166,11 @@ brew 'jq'
 #brew "nghttp2"
 #brew "ncdu"
 #brew "node"
-brew "rust"
 #brew "wimlib"
-brew "protobuf"
 
 # DevOps Tools
+brew "cmake"
+brew "colima"
 #brew 'awscli'
 #brew "aws-iam-authenticator"
 #brew "openssl@3"
@@ -180,7 +180,6 @@ brew "protobuf"
 #brew "unbound"
 #brew "gnutls"
 #brew "emacs"
-brew "cmake"
 #brew "openldap"
 #brew "ctop"
 #brew "librsvg"
@@ -200,8 +199,7 @@ brew "cmake"
 #brew "hashicorp/tap/terraform-ls"
 #brew "weaveworks/tap/eksctl"
 #cask "git-credential-manager-core"
-cask "docker"
-brew "colima"
+#cask "docker"
 #cask "insomnia"
 #cask "postman"
 #cask "thonny"
