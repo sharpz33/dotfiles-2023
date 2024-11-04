@@ -220,3 +220,4 @@ cask "steam"
 
 # AI Tools
 brew "aider"
+brew "ollama"
