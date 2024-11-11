@@ -67,7 +67,6 @@ cask 'commander-one'
 cask 'deepl'
 cask '1password'
 #cask 'freedom'
-cask 'notion'
 #cask 'alfred'
 cask 'raycast'
 cask 'notion-calendar'
@@ -160,6 +159,7 @@ cask "anaconda"
 #brew "ncdu"
 #brew "node"
 #brew "wimlib"
+#cask "tableplus" # sql gui client
 
 # DevOps Tools
 brew "cmake"
@@ -198,6 +198,10 @@ brew "colima"
 #cask "thonny"
 #cask "vagrant"
 #cask "virtualbox"
+
+#No-code tools
+cask 'notion'
+#cast 'airtable'
 
 #Photo tools
 cask "calibrite-profiler"
