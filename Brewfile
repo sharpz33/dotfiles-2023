@@ -1,5 +1,4 @@
-# Taps
-tap 'azure/bicep'
+# Tapstap 'azure/bicep'
 tap 'homebrew/bundle'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
@@ -25,6 +24,8 @@ brew 'libarchive'
 brew 'fping'
 brew 'fzf'
 brew 'git'
+brew 'git-lfs'
+brew 'glab' #GitLab CLI
 brew 'gh'
 brew 'glib'
 brew 'grep'
@@ -57,7 +58,6 @@ cask 'font-source-code-pro'
 cask 'font-source-sans-3'
 
 
-
 # GUI General Tools
 cask '1password'
 #cask 'alfred'
@@ -70,7 +70,7 @@ cask 'cyberduck'
 cask 'deepl'
 cask 'freedom'
 cask 'iterm2'
-cask 'jordanbaird-ice'
+cask 'jordanbaird-ice' # Bartender alternative
 cask 'karabiner-elements'
 cask 'keyboard-maestro'
 cask 'lulu'
@@ -80,7 +80,7 @@ cask 'notion-calendar'
 cask 'omnidisksweeper' # disk space analyser
 cask 'raycast'
 cask 'rectangle'
-#cask 'rize' #AI time tracker
+cask 'rize' #AI time tracker
 cask 'textsniper'
 cask 'wezterm' #terminal with lua configuration
 
@@ -91,6 +91,7 @@ brew 'yt-dlp'
 brew 'btop' # Resource monitor
 brew 'mplayer' # watch videos from terminal
 brew 'mpv' # watch videos from terminal
+brew 'ranger' # file manager
 #brew 'ytfzf' # watch yt videos from terminal
 #brew 'lowfi' # simple CLI lofi player
 
@@ -102,7 +103,7 @@ mas 'Keynote', id: 409183694
 mas 'Kindle', id: 405399194
 mas 'Numbers', id: 409203825
 mas 'Pages', id: 409201541
-mas 'Omnivore: Read-it-later', id: 1564031042 
+mas 'Perplexity: Ask Anything', id: 6714467650
 mas 'Sync Folders', id: 530573877
 mas 'Tab Space', id: 1473726602
 mas 'Later: Save Links For Later',id: 1507396839
@@ -110,6 +111,8 @@ mas '1Password for Safari', id:1569813296
 mas 'AdGuard for Safari', id: 1440147259
 mas 'Save to Raindrop.io', id: 1549370672
 mas 'Video Speed Controller', id: 1588368612
+#mas 'Omnivore: Read-it-later', id: 1564031042 
+#mas 'Xcode', id: 497799835
 #mas 'Accelerate for Safari', id: 1459809092
 #mas 'Nozbe Personal', id: 508957583
 #mas 'Save to Pocket', id: 1477385213
@@ -126,11 +129,12 @@ cask 'spotify'
 cask 'discord' 
 cask 'hazel' #test
 cask 'notion'
-cask 'nozbe'
+#cask 'nozbe'
 cask 'obs'
 cask 'obsidian'
 cask 'postman'
 cask 'raindropio'
+cask 'reader' # Readwise Reader
 cask 'rocket'
 cask 'signal'
 cask 'superhuman'
@@ -142,7 +146,7 @@ cask 'zoom'
 brew 'blueutil'
 brew 'smudge/smudge/nightlight'
 # cask 'setapp'
-#cask 'todoist'
+cask 'todoist'
 #cask 'logseq'
 #brew 'carlocab/personal/unrar'
 #brew 'libass'
@@ -192,6 +196,7 @@ brew 'go'
 brew 'python@3.13'
 brew 'pyenv'
 brew 'pyenv-virtualenvwrapper'
+brew 'pandoc'
 # docker
 brew 'colima'
 brew 'docker-buildx'
@@ -201,22 +206,25 @@ brew 'docker-compose'
 brew 'minikube'
 brew 'k9s'
 brew 'kubectx'
+brew 'helm'
 brew 'vfkit' #VMs
 # clouds
 brew 'azure-cli'
 brew 'bicep'
 brew 'aztfexport'
 # databases
+brew 'libpq'
 cask 'dbeaver-community'
 # terraform
 brew 'hashicorp/tap/terraform'
 brew 'terraformer'
 brew 'tfsec'
 ###
+brew 'openvpn'
 brew 'sops' #Simple And Flexible Tool For Managing Secrets
 brew 'cmake'
-#brew 'awscli'
-#brew 'aws-iam-authenticator'
+brew 'awscli'
+brew 'aws-iam-authenticator'
 #brew 'openssl@3'
 #brew 'aircrack-ng'
 #brew 'apr-util'
@@ -275,8 +283,10 @@ brew 'innoextract'	#tool to extract GOG Windows-based installers
 
 # AI Tools
 brew 'aider'
+cask 'claude'
 brew 'ollama'
-
+# cask 'cursor'
+# cask 'windsurf'
 
 ## THINK ABOUT THIS LATER
 brew 'docker'
