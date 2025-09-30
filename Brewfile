@@ -25,8 +25,6 @@ brew 'fping'
 brew 'fzf'
 brew 'git'
 brew 'git-lfs'
-brew 'glab' #GitLab CLI
-brew 'gh'
 brew 'glib'
 brew 'grep'
 brew 'gnu-sed'
@@ -36,7 +34,6 @@ brew 'mas' # Mac App Store manager
 brew 'p7zip'
 brew 'telnet'
 brew 'tldr'
-brew 'tmux'
 brew 'tree'
 brew 'watch'
 brew 'wget'
@@ -68,6 +65,7 @@ cask 'brave-browser'
 cask 'commander-one'
 cask 'cyberduck'
 cask 'deepl'
+cask 'firefox'
 cask 'freedom'
 cask 'iterm2'
 cask 'jordanbaird-ice' # Bartender alternative
@@ -89,13 +87,23 @@ cask '1password-cli'
 brew 'speedtest-cli'
 brew 'yt-dlp'
 brew 'btop' # Resource monitor
+brew 'fd' # Simple, fast and user-friendly alternative to find
+brew 'glab' #GitLab CLI
+brew 'gh'
+brew 'imagemagick' #images transformations
+brew 'ripgrep' #Search tool like grep and The Silver Searcher 
 brew 'mplayer' # watch videos from terminal
 brew 'mpv' # watch videos from terminal
+brew 'ncdu' # NCurses Disk Usage
 brew 'ranger' # file manager
+brew 'tmux'
+brew 'zoxide' # Shell extension to navigate your filesystem faster
 #brew 'ytfzf' # watch yt videos from terminal
 #brew 'lowfi' # simple CLI lofi player
 
 # Mac App Store
+mas '1Password for Safari', id:1569813296
+mas 'AdGuard for Safari', id: 1440147259
 mas 'Giphy Capture', id: 668208984
 mas 'iA Writer', id: 775737590
 mas 'Instapaper', id:288545208
@@ -104,30 +112,30 @@ mas 'Kindle', id: 405399194
 mas 'Numbers', id: 409203825
 mas 'Pages', id: 409201541
 mas 'Perplexity: Ask Anything', id: 6714467650
+mas 'RSA Authenticator (SecurID)', id: 318038618  
+mas 'Save to Raindrop.io', id: 1549370672
 mas 'Sync Folders', id: 530573877
 mas 'Tab Space', id: 1473726602
-mas 'Later: Save Links For Later',id: 1507396839
-mas '1Password for Safari', id:1569813296
-mas 'AdGuard for Safari', id: 1440147259
-mas 'Save to Raindrop.io', id: 1549370672
 mas 'Video Speed Controller', id: 1588368612
-#mas 'Omnivore: Read-it-later', id: 1564031042 
-#mas 'Xcode', id: 497799835
 #mas 'Accelerate for Safari', id: 1459809092
-#mas 'Nozbe Personal', id: 508957583
-#mas 'Save to Pocket', id: 1477385213
-#mas 'Save to Reader', id: 1640236961
 #mas 'AdBlock Pro', id: 1018301773
 #mas 'Disk Speed Test', id: 425264550
-### MAS Safari Extensions
+#mas 'Later: Save Links For Later',id: 1507396839
+#mas 'Nozbe Personal', id: 508957583
+#mas 'Omnivore: Read-it-later', id: 1564031042 
+#mas 'Save to Pocket', id: 1477385213
+#mas 'Save to Reader', id: 1640236961
+#mas 'Xcode', id: 497799835
 
 # Optional Tools
+cask 'calibre' # E-books management software
 cask 'dropbox'
 cask 'flux'
 cask 'telegram'
 cask 'spotify'
 cask 'discord' 
 cask 'hazel' #test
+cask 'maccy' # clipboard manager
 cask 'notion'
 #cask 'nozbe'
 cask 'obs'
@@ -145,6 +153,7 @@ cask 'zed'
 cask 'zoom'
 brew 'blueutil'
 brew 'smudge/smudge/nightlight'
+cask 'send-to-kindle'
 # cask 'setapp'
 cask 'todoist'
 #cask 'logseq'
@@ -169,6 +178,7 @@ cask 'todoist'
 # Dev Tools
 #cask 'anaconda'
 brew 'jq'
+brew 'git-filter-repo'
 brew 'nvm' # node version manager
 brew 'protobuf'
 brew 'qemu'
@@ -212,6 +222,7 @@ brew 'vfkit' #VMs
 brew 'azure-cli'
 brew 'bicep'
 brew 'aztfexport'
+cask 'google-cloud-sdk'
 # databases
 brew 'libpq'
 cask 'dbeaver-community'
@@ -220,6 +231,8 @@ brew 'hashicorp/tap/terraform'
 brew 'terraformer'
 brew 'tfsec'
 ###
+cask 'citrix-workspace'
+brew 'stoken'
 brew 'openvpn'
 brew 'sops' #Simple And Flexible Tool For Managing Secrets
 brew 'cmake'
@@ -264,8 +277,8 @@ cask 'wacom-tablet'
 
 # Design tools
 cask 'adobe-creative-cloud'
-cask 'figma'
-cask 'sketch'
+#cask 'figma'
+#cask 'sketch'
 cask 'ogdesign-eagle'
 
 # 3D printing tools
@@ -274,17 +287,22 @@ cask 'bambu-studio'
 #cask 'ultimaker-cura'
 
 # Hack/Security Tools
-cask 'burp-suite'	#proxy tool
+#cask 'burp-suite'	#proxy tool
 cask 'caido'		#proxy tool
 
 # Games
 cask 'steam'
 brew 'innoextract'	#tool to extract GOG Windows-based installers
 
+# Crypto
+cask 'ledger-live'
+
 # AI Tools
 brew 'aider'
 cask 'claude'
+brew 'gemini-cli'
 brew 'ollama'
+cask 'superwhisper'
 # cask 'cursor'
 # cask 'windsurf'
 
