@@ -40,64 +40,154 @@ The goal: **Go from fresh macOS to fully productive DevOps environment in ~30 mi
 
 ## Fresh macOS Setup
 
-### Prerequisites
+Follow these steps to set up a brand new Mac from scratch.
 
-Before starting, ensure you have:
-1. Updated macOS to the latest version
-2. Backed up your existing data
+### Step 1: Prepare Your New Mac
 
-### Backup Checklist
+**On your fresh macOS installation:**
 
-- [ ] Commit and push all git repositories
-- [ ] Save documents from non-iCloud directories
-- [ ] Export important data from databases
-- [ ] Backup browser bookmarks and extensions
-- [ ] Note down any custom system preferences
+1. **Complete the initial macOS setup** (language, Apple ID, etc.)
+2. **Update macOS** to the latest version:
+   - Open System Settings → General → Software Update
+   - Install all available updates and restart if needed
+3. **Open Terminal** (Applications → Utilities → Terminal)
 
-### Installation
+**Time estimate:** 10-15 minutes (depending on update size)
 
-1. **Generate SSH key** (if needed):
+### Step 2: Set Up SSH Keys for GitHub
 
-   ```zsh
-   curl https://raw.githubusercontent.com/sharpz33/dotfiles-2023/HEAD/ssh.sh | sh -s "your-email@example.com"
+You need SSH access to clone this repository.
+
+**Option A: If you already have SSH keys backed up**
+```zsh
+# Copy your existing keys to ~/.ssh/
+# Skip to Step 3
+```
+
+**Option B: Generate new SSH key**
+```zsh
+# Generate ED25519 key (recommended)
+curl https://raw.githubusercontent.com/sharpz33/dotfiles-2023/HEAD/ssh.sh | sh -s "your-email@example.com"
+```
+
+**Then add the key to GitHub:**
+```zsh
+# Copy public key to clipboard
+pbcopy < ~/.ssh/id_ed25519.pub
+
+# Now add it to GitHub:
+# 1. Open https://github.com/settings/keys
+# 2. Click "New SSH key"
+# 3. Paste the key (Cmd+V) and save
+```
+
+**Verify SSH works:**
+```zsh
+ssh -T git@github.com
+# Expected output: "Hi USERNAME! You've successfully authenticated..."
+```
+
+**Time estimate:** 3-5 minutes
+
+### Step 3: Clone This Repository
+
+```zsh
+# Clone to ~/.dotfiles
+git clone git@github.com:sharpz33/dotfiles-2023.git ~/.dotfiles
+
+# Navigate to the directory
+cd ~/.dotfiles
+```
+
+**Time estimate:** 30 seconds
+
+### Step 4: Run the Automated Setup
+
+```zsh
+./fresh.sh
+```
+
+**What will happen:**
+
+1. **You'll be prompted for information:**
+   ```
+   Enter computer name (default: mba): [type your Mac name or press Enter]
+   Enter your Git name (default: e-uzoi): [type your name or press Enter]
+   Enter your Git email (default: e-uzoi@gft.com): [type your email or press Enter]
    ```
 
-   Then add the SSH key to GitHub/GitLab:
-   ```zsh
-   pbcopy < ~/.ssh/id_ed25519.pub
-   ```
+2. **Oh My Zsh installation** (if not present):
+   - May ask to change your default shell to Zsh → Answer **yes**
+   - Will create `~/.oh-my-zsh` directory
 
-2. **Clone this repository**:
+3. **Homebrew installation** (if not present):
+   - Downloads and installs Homebrew (auto-detects Intel vs Apple Silicon)
+   - May prompt for your Mac password → Enter it
+   - Takes 2-5 minutes
 
-   ```zsh
-   git clone --recursive git@github.com:sharpz33/dotfiles-2023.git ~/.dotfiles
-   ```
+4. **Package installation via Brewfile:**
+   - Installs 100+ applications and tools
+   - This is the longest step - **expect 15-30 minutes**
+   - You'll see progress as each package installs
+   - Some apps (like Docker, VS Code) are large downloads
 
-3. **Run the installation**:
+5. **Git configuration:**
+   - Sets your git user name and email globally
 
-   ```zsh
-   cd ~/.dotfiles && ./fresh.sh
-   ```
+6. **macOS preferences:**
+   - Applies system tweaks from `.macos`
+   - May prompt for password to change system settings
+   - Finder and Dock will restart automatically
 
-   The script will prompt you for:
-   - Computer name (default: mba)
-   - Git user name (default: e-uzoi)
-   - Git user email (default: e-uzoi@gft.com)
+**Important notes:**
+- ☕ **Grab coffee** - the Brewfile installation takes time
+- 🔒 You may be asked for your **Mac password** multiple times
+- 🚫 Don't close Terminal during installation
+- 📱 Some apps may ask for permissions (camera, microphone, etc.) - you can configure these later
 
-4. **Restart your Mac** to apply all changes
+**Time estimate:** 20-45 minutes (depends on internet speed)
 
-Your Mac is now configured!
+### Step 5: Restart Your Mac
 
-> **Note:** The script assumes you're installing to `~/.dotfiles`. If you use a different location, update the `DOTFILES` variable in `.zshrc`.
+```zsh
+# Restart to apply all system changes
+sudo shutdown -r now
+```
 
-### What `fresh.sh` Does
+After restart, open Terminal and you should see the **Powerlevel10k prompt** with your new configuration!
 
-1. Installs Oh My Zsh (if not present)
-2. Installs Homebrew (if not present) - auto-detects Intel vs Apple Silicon
-3. Symlinks `.zshrc` from dotfiles to home directory
-4. Installs all packages from `Brewfile` via Homebrew Bundle
-5. Configures Git with your name and email
-6. Applies macOS system preferences from `.macos`
+### Step 6: Post-Installation (Optional)
+
+**Configure app-specific settings:**
+- Log into 1Password, browsers, cloud services
+- Configure Raycast keyboard shortcuts
+- Set up IDE preferences (VS Code, Neovim)
+- Configure terminal themes if needed (`p10k configure`)
+
+**Verify installation:**
+```zsh
+# Check key tools are installed
+terraform --version
+kubectl version --client
+python --version
+node --version
+docker --version
+```
+
+---
+
+## What Gets Installed
+
+The `fresh.sh` script performs these actions automatically:
+
+1. ✅ **Installs Oh My Zsh** with Powerlevel10k theme
+2. ✅ **Installs Homebrew** (Intel or Apple Silicon)
+3. ✅ **Symlinks `.zshrc`** to your home directory
+4. ✅ **Installs 100+ packages** from Brewfile (CLIs, apps, fonts)
+5. ✅ **Configures Git** with your credentials
+6. ✅ **Applies macOS tweaks** (keyboard speed, Finder, Dock, etc.)
+
+**Result:** Fully configured DevOps/Cloud engineering environment ready to use!
 
 ## Customization
 
