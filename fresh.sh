@@ -2,6 +2,18 @@
 
 echo "Setting up your Mac..."
 
+# Prompt for computer name
+read -p "Enter computer name (default: mba): " COMPUTER_NAME
+COMPUTER_NAME=${COMPUTER_NAME:-mba}
+export COMPUTER_NAME
+
+# Prompt for Git configuration
+read -p "Enter your Git name (default: e-uzoi): " GIT_NAME
+GIT_NAME=${GIT_NAME:-e-uzoi}
+
+read -p "Enter your Git email (default: e-uzoi@gft.com): " GIT_EMAIL
+GIT_EMAIL=${GIT_EMAIL:-e-uzoi@gft.com}
+
 # Check for Oh My Zsh and install if we don't have it
 if test ! $(which omz); then
   /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
@@ -11,16 +23,25 @@ fi
 if test ! $(which brew); then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+  # Detect architecture and set appropriate Homebrew path
+  if [ "$(uname -m)" = "arm64" ]; then
+    # Apple Silicon (M1/M2/M3)
+    BREW_PREFIX="/opt/homebrew"
+  else
+    # Intel
+    BREW_PREFIX="/usr/local"
+  fi
+
   (
     echo
-    echo 'eval "$(/usr/local/bin/brew shellenv)"'
+    echo "eval \"\$(${BREW_PREFIX}/bin/brew shellenv)\""
   ) >>$HOME/.zprofile
-  eval "$(/usr/local/bin/brew shellenv)"
+  eval "$(${BREW_PREFIX}/bin/brew shellenv)"
 fi
 
 # Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
 rm -rf $HOME/.zshrc
-ln -s .zshrc $HOME/.zshrc
+ln -s $(pwd)/.zshrc $HOME/.zshrc
 
 # Update Homebrew recipes
 brew update
@@ -29,11 +50,13 @@ brew update
 brew tap homebrew/bundle
 brew bundle --file ./Brewfile
 
-# Clone Github repositories
-#./clone.sh
-
 # Symlink the Mackup config file to the home directory
 #ln -s .mackup.cfg $HOME/.mackup.cfg
+
+# Configure Git
+git config --global user.name "$GIT_NAME"
+git config --global user.email "$GIT_EMAIL"
+echo "Git configured with name: $GIT_NAME and email: $GIT_EMAIL"
 
 # Set macOS preferences - we will run this last because this will reload the shell
 source ./.macos

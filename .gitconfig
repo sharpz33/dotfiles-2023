@@ -1,0 +1,17 @@
+[user]
+	# Email and name will be set during installation via fresh.sh
+	# Default: email = e-uzoi@gft.com, name = e-uzoi
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[credential]
+	helper = store
+[url "https://dev.azure.com/"]
+	insteadOf = git@ssh.dev.azure.com:
+[core]
+	pager = 
+[alias]
+	l = log --no-lager
+

@@ -1,88 +1,198 @@
-<p align="center"><img src="art/banner-2x.png"></p>
+# Dotfiles
 
-## Introduction
+My personal macOS dotfiles for DevOps/Cloud Engineering workflow. Automates the setup of a new Mac with all tools, configurations, and preferences.
 
-This repository serves as my way to help me setup and maintain my Mac. It takes the effort out of installing everything manually. Everything needed to install my preferred setup of macOS is detailed in this readme. Feel free to explore, learn and copy parts for your own dotfiles. Enjoy!
+## What's Included
 
-📖 - [Read the blog post](https://driesvints.com/blog/getting-started-with-dotfiles)  
-📺 - [Watch the screencast on Laracasts](https://laracasts.com/series/guest-spotlight/episodes/1)  
-💡 - [Learn how to build your own dotfiles](https://github.com/driesvints/dotfiles#your-own-dotfiles)
+### Tools & Stack
+- **Cloud & DevOps**: Terraform, Azure CLI, Google Cloud SDK, AWS CLI, kubectl, k9s, minikube, helm
+- **Containers**: Docker (via Colima), docker-compose
+- **Languages**: Python (pyenv, virtualenvwrapper), Node.js (nvm), Go
+- **Editors**: Neovim, VS Code, Zed
+- **Terminal**: iTerm2, Ghostty, WezTerm with Powerlevel10k theme
+- **Version Control**: Git, LazyGit, gh, glab
+- **Security**: Lulu, Caido
+- **Productivity**: Raycast, Rectangle, 1Password, Arc, Brave
+- **AI Tools**: Claude, Ollama, Aider, Gemini CLI
 
-If you find this repo useful, [consider sponsoring me](https://github.com/sponsors/driesvints) (a little bit)! ❤️ 
+### Configuration Files
+- `.zshrc` - Zsh configuration with Oh My Zsh
+- `.p10k.zsh` - Powerlevel10k theme configuration
+- `aliases.zsh` - Custom aliases for DevOps workflows
+- `path.zsh` - PATH configuration for various tools
+- `.gitconfig` - Git configuration (email/name set during installation)
+- `.macos` - macOS system preferences and tweaks
+- `Brewfile` - Homebrew packages and applications
+- `fresh.sh` - Automated installation script
 
-## A Fresh macOS Setup
+## Fresh macOS Setup
 
-These instructions are for setting up new Mac devices. Instead, if you want to get started building your own dotfiles, you can [find those instructions below](#your-own-dotfiles).
+### Prerequisites
 
-### Backup your data
+Before starting, ensure you have:
+1. Updated macOS to the latest version
+2. Backed up your existing data
 
-If you're migrating from an existing Mac, you should first make sure to backup all of your existing data. Go through the checklist below to make sure you didn't forget anything before you migrate.
+### Backup Checklist
 
-- Did you commit and push any changes/branches to your git repositories?
-- Did you remember to save all important documents from non-iCloud directories?
-- Did you save all of your work from apps which aren't synced through iCloud?
-- Did you remember to export important data from your local database?
-- Did you update [mackup](https://github.com/lra/mackup) to the latest version and ran `mackup backup`?
+- [ ] Commit and push all git repositories
+- [ ] Save documents from non-iCloud directories
+- [ ] Export important data from databases
+- [ ] Backup browser bookmarks and extensions
+- [ ] Note down any custom system preferences
 
-### Setting up your Mac
+### Installation
 
-After backing up your old Mac you may now follow these install instructions to setup a new one.
-
-1. Update macOS to the latest version through system preferences
-2. [Generate a new public and private SSH key](https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) by running:
+1. **Generate SSH key** (if needed):
 
    ```zsh
-   curl https://raw.githubusercontent.com/driesvints/dotfiles/HEAD/ssh.sh | sh -s "<your-email-address>"
+   curl https://raw.githubusercontent.com/YOUR_USERNAME/dotfiles/HEAD/ssh.sh | sh -s "your-email@example.com"
    ```
 
-3. Clone this repo to `~/.dotfiles` with:
+   Then add the SSH key to GitHub/GitLab:
+   ```zsh
+   pbcopy < ~/.ssh/id_ed25519.pub
+   ```
 
-    ```zsh
-    git clone --recursive git@github.com:driesvints/dotfiles.git ~/.dotfiles
-    ```
+2. **Clone this repository**:
 
-4. Run the installation with:
+   ```zsh
+   git clone --recursive git@github.com:YOUR_USERNAME/dotfiles.git ~/.dotfiles
+   ```
 
-    ```zsh
-    cd ~/.dotfiles && ./fresh.sh
-    ```
+3. **Run the installation**:
 
-5. After mackup is synced with your cloud storage, restore preferences by running `mackup restore`
-6. Restart your computer to finalize the process
+   ```zsh
+   cd ~/.dotfiles && ./fresh.sh
+   ```
 
-Your Mac is now ready to use!
+   The script will prompt you for:
+   - Computer name (default: mba)
+   - Git user name (default: e-uzoi)
+   - Git user email (default: e-uzoi@gft.com)
 
-> 💡 You can use a different location than `~/.dotfiles` if you want. Make sure you also update the reference in the [`.zshrc`](./.zshrc#L2) file.
+4. **Restart your Mac** to apply all changes
 
-### Cleaning your old Mac (optionally)
+Your Mac is now configured!
 
-After you've set up your new Mac you may want to wipe and clean install your old Mac. Follow [this article](https://support.apple.com/guide/mac-help/erase-and-reinstall-macos-mh27903/mac) to do that. Remember to [backup your data](#backup-your-data) first!
+> **Note:** The script assumes you're installing to `~/.dotfiles`. If you use a different location, update the `DOTFILES` variable in `.zshrc`.
 
-## Your Own Dotfiles
+### What `fresh.sh` Does
 
-**Please note that the instructions below assume you already have set up Oh My Zsh so make sure to first [install Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh#getting-started) before you continue.**
+1. Installs Oh My Zsh (if not present)
+2. Installs Homebrew (if not present) - auto-detects Intel vs Apple Silicon
+3. Symlinks `.zshrc` from dotfiles to home directory
+4. Installs all packages from `Brewfile` via Homebrew Bundle
+5. Configures Git with your name and email
+6. Applies macOS system preferences from `.macos`
 
-If you want to start with your own dotfiles from this setup, it's pretty easy to do so. First of all you'll need to fork this repo. After that you can tweak it the way you want.
+## Customization
 
-Go through the [`.macos`](./.macos) file and adjust the settings to your liking. You can find much more settings at [the original script by Mathias Bynens](https://github.com/mathiasbynens/dotfiles/blob/master/.macos) and [Kevin Suttle's macOS Defaults project](https://github.com/kevinSuttle/MacOS-Defaults).
+### Adding Aliases
 
-Check out the [`Brewfile`](./Brewfile) file and adjust the apps you want to install for your machine. Use [their search page](https://formulae.brew.sh/cask/) to check if the app you want to install is available.
-
-Check out the [`aliases.zsh`](./aliases.zsh) file and add your own aliases. If you need to tweak your `$PATH` check out the [`path.zsh`](./path.zsh) file. These files get loaded in because the `$ZSH_CUSTOM` setting points to the `.dotfiles` directory. You can adjust the [`.zshrc`](./.zshrc) file to your liking to tweak your Oh My Zsh setup. More info about how to customize Oh My Zsh can be found [here](https://github.com/robbyrussell/oh-my-zsh/wiki/Customization).
-
-When installing these dotfiles for the first time you'll need to backup all of your settings with Mackup. Install Mackup and backup your settings with the commands below. Your settings will be synced to iCloud so you can use them to sync between computers and reinstall them when reinstalling your Mac. If you want to save your settings to a different directory or different storage than iCloud, [checkout the documentation](https://github.com/lra/mackup/blob/master/doc/README.md#storage). Also make sure your `.zshrc` file is symlinked from your dotfiles repo to your home directory. 
-
+Edit `aliases.zsh` to add your own aliases:
 ```zsh
-brew install mackup
-mackup backup
+alias myalias="command"
 ```
 
-You can tweak the shell theme, the Oh My Zsh settings and much more. Go through the files in this repo and tweak everything to your liking.
+Aliases are automatically loaded via `ZSH_CUSTOM=$DOTFILES`.
 
-Enjoy your own Dotfiles!
+### Modifying PATH
 
-## Thanks To...
+Edit `path.zsh` to add directories to your PATH:
+```zsh
+export PATH="/my/custom/path:$PATH"
+```
 
-I first got the idea for starting this project by visiting the [GitHub does dotfiles](https://dotfiles.github.io/) project. Both [Zach Holman](https://github.com/holman/dotfiles) and [Mathias Bynens](https://github.com/mathiasbynens/dotfiles) were great sources of inspiration. [Sourabh Bajaj](https://twitter.com/sb2nov/)'s [Mac OS X Setup Guide](http://sourabhbajaj.com/mac-setup/) proved to be invaluable. Thanks to [@subnixr](https://github.com/subnixr) for [his awesome Zsh theme](https://github.com/subnixr/minimal)! Thanks to [Caneco](https://twitter.com/caneco) for the header in this readme. And lastly, I'd like to thank [Emma Fabre](https://twitter.com/anahkiasen) for [her excellent presentation on Homebrew](https://speakerdeck.com/anahkiasen/a-storm-homebrewin) which made me migrate a lot to a [`Brewfile`](./Brewfile) and [Mackup](https://github.com/lra/mackup).
+### Installing Apps
 
-In general, I'd like to thank every single one who open-sources their dotfiles for their effort to contribute something to the open-source community.
+Add packages to `Brewfile`:
+```ruby
+brew 'package-name'        # CLI tools
+cask 'application-name'     # GUI applications
+mas 'App Name', id: 123456  # Mac App Store apps
+```
+
+Then run:
+```zsh
+brew bundle --file ~/.dotfiles/Brewfile
+```
+
+### macOS Preferences
+
+Edit `.macos` to customize system settings. Current configuration includes:
+- Blazingly fast keyboard repeat rate
+- Disabled auto-corrections (better for coding)
+- Hidden menu bar and desktop icons
+- Auto-hiding Dock
+- Enhanced Finder settings
+- Security preferences
+
+To check your current settings vs `.macos`:
+```zsh
+cd ~/.dotfiles && ./check-settings.sh
+```
+
+## Maintenance
+
+### Updating Brewfile
+
+To capture currently installed packages:
+```zsh
+cd ~/.dotfiles
+brew bundle dump --force
+```
+
+### Syncing Changes
+
+After modifying dotfiles:
+```zsh
+cd ~/.dotfiles
+git add .
+git commit -m "Update dotfiles"
+git push
+```
+
+## Architecture Support
+
+The installation script automatically detects your Mac's architecture:
+- **Apple Silicon (M1/M2/M3)**: Uses `/opt/homebrew`
+- **Intel**: Uses `/usr/local`
+
+## Troubleshooting
+
+### Homebrew Issues
+
+If Homebrew commands aren't found after installation:
+```zsh
+eval "$(/opt/homebrew/bin/brew shellenv)"  # Apple Silicon
+# or
+eval "$(/usr/local/bin/brew shellenv)"      # Intel
+```
+
+### Symlink Issues
+
+If `.zshrc` isn't loading properly:
+```zsh
+ls -la ~/.zshrc  # Check symlink
+cd ~/.dotfiles && ln -sf $(pwd)/.zshrc ~/.zshrc  # Recreate
+```
+
+### Plugin Errors
+
+If Oh My Zsh plugins fail to load:
+```zsh
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+## Thanks
+
+Inspired by:
+- [Dries Vints' dotfiles](https://github.com/driesvints/dotfiles) - Original template
+- [Mathias Bynens' dotfiles](https://github.com/mathiasbynens/dotfiles) - macOS defaults
+- [GitHub does dotfiles](https://dotfiles.github.io/) - Community inspiration
+
+## License
+
+This is free and unencumbered software released into the public domain. See LICENSE.md for details.
