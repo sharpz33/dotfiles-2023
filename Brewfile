@@ -1,6 +1,7 @@
 # Tapstap 'azure/bicep'
 tap 'homebrew/bundle'
 tap 'homebrew/services'
+tap 'browsh-org/homebrew-browsh'
 tap 'hashicorp/tap'
 tap 'microsoft/git'
 tap 'cfergeau/crc' # for vfkit
@@ -57,7 +58,7 @@ cask 'font-source-sans-3'
 cask '1password'
 #cask 'alfred'
 cask 'arc'
-cask 'zen-browser'
+cask 'zen'
 #cask 'bartender'
 cask 'brave-browser'
 cask 'commander-one'
@@ -65,6 +66,7 @@ cask 'cyberduck'
 cask 'deepl'
 cask 'firefox'
 cask 'freedom'
+cask 'ghostty' # Terminal emulator that uses platform-native UI and GPU acceleration
 cask 'iterm2'
 cask 'jordanbaird-ice' # Bartender alternative
 cask 'karabiner-elements'
@@ -82,19 +84,21 @@ cask 'wezterm' #terminal with lua configuration
 
 # CLI General Tools
 cask '1password-cli'
-brew 'speedtest-cli'
-brew 'yt-dlp'
+brew 'browsh'
 brew 'btop' # Resource monitor
 brew 'fd' # Simple, fast and user-friendly alternative to find
 brew 'glab' #GitLab CLI
 brew 'gh'
 brew 'imagemagick' #images transformations
+brew 'lazygit' #Simple terminal UI for git commands
 brew 'ripgrep' #Search tool like grep and The Silver Searcher 
 brew 'mplayer' # watch videos from terminal
 brew 'mpv' # watch videos from terminal
 brew 'ncdu' # NCurses Disk Usage
 brew 'ranger' # file manager
+brew 'speedtest-cli'
 brew 'tmux'
+brew 'yt-dlp'
 brew 'zoxide' # Shell extension to navigate your filesystem faster
 #brew 'ytfzf' # watch yt videos from terminal
 #brew 'lowfi' # simple CLI lofi player
@@ -128,7 +132,7 @@ mas 'Video Speed Controller', id: 1588368612
 # Optional Tools
 cask 'calibre' # E-books management software
 cask 'dropbox'
-cask 'flux'
+cask 'flux-app'
 cask 'telegram'
 cask 'spotify'
 cask 'discord' 
@@ -153,7 +157,7 @@ brew 'blueutil'
 brew 'smudge/smudge/nightlight'
 cask 'send-to-kindle'
 # cask 'setapp'
-cask 'todoist'
+cask 'todoist-app'
 #cask 'logseq'
 #brew 'carlocab/personal/unrar'
 #brew 'libass'
@@ -220,7 +224,7 @@ brew 'vfkit' #VMs
 brew 'azure-cli'
 brew 'bicep'
 brew 'aztfexport'
-cask 'google-cloud-sdk'
+cask 'gcloud-cli'
 # databases
 brew 'libpq'
 cask 'dbeaver-community'
@@ -298,6 +302,7 @@ cask 'ledger-live'
 # AI Tools
 brew 'aider'
 cask 'claude'
+cask 'claude-code'
 brew 'gemini-cli'
 brew 'ollama'
 cask 'superwhisper'
