@@ -43,6 +43,11 @@ fi
 rm -rf $HOME/.zshrc
 ln -s $(pwd)/.zshrc $HOME/.zshrc
 
+# Symlink Karabiner-Elements configuration
+mkdir -p $HOME/.config/karabiner
+rm -rf $HOME/.config/karabiner/karabiner.json
+ln -s $(pwd)/karabiner.json $HOME/.config/karabiner/karabiner.json
+
 # Update Homebrew recipes
 brew update
 

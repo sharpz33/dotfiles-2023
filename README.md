@@ -25,7 +25,7 @@ The goal: **Go from fresh macOS to fully productive DevOps environment in ~30 mi
 - **Terminal**: iTerm2, Ghostty, WezTerm with Powerlevel10k theme
 - **Version Control**: Git, LazyGit, gh, glab
 - **Security**: Lulu, Caido
-- **Productivity**: Raycast, Rectangle, 1Password, Arc, Brave
+- **Productivity**: Raycast, Rectangle, 1Password, Arc, Brave, Karabiner-Elements
 - **AI Tools**: Claude, Ollama, Aider, Gemini CLI
 
 ### Configuration Files
@@ -34,6 +34,7 @@ The goal: **Go from fresh macOS to fully productive DevOps environment in ~30 mi
 - `aliases.zsh` - Custom aliases for DevOps workflows
 - `path.zsh` - PATH configuration for various tools
 - `.gitconfig` - Git configuration (email/name set during installation)
+- `karabiner.json` - Karabiner-Elements key remapping (Caps Lock → Hyper key, device-specific mappings)
 - `.macos` - macOS system preferences and tweaks
 - `Brewfile` - Homebrew packages and applications
 - `fresh.sh` - Automated installation script
@@ -183,9 +184,10 @@ The `fresh.sh` script performs these actions automatically:
 1. ✅ **Installs Oh My Zsh** with Powerlevel10k theme
 2. ✅ **Installs Homebrew** (Intel or Apple Silicon)
 3. ✅ **Symlinks `.zshrc`** to your home directory
-4. ✅ **Installs 100+ packages** from Brewfile (CLIs, apps, fonts)
-5. ✅ **Configures Git** with your credentials
-6. ✅ **Applies macOS tweaks** (keyboard speed, Finder, Dock, etc.)
+4. ✅ **Symlinks Karabiner-Elements config** for key remapping
+5. ✅ **Installs 100+ packages** from Brewfile (CLIs, apps, fonts)
+6. ✅ **Configures Git** with your credentials
+7. ✅ **Applies macOS tweaks** (keyboard speed, Finder, Dock, etc.)
 
 **Result:** Fully configured DevOps/Cloud engineering environment ready to use!
 
