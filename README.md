@@ -2,6 +2,19 @@
 
 My personal macOS dotfiles for DevOps/Cloud Engineering workflow. Automates the setup of a new Mac with all tools, configurations, and preferences.
 
+## What This Repo Does
+
+This repository provides a **fully automated setup** for a fresh macOS installation tailored for DevOps and Cloud Engineering work. Running a single script (`fresh.sh`) will:
+
+1. **Install essential tools**: Homebrew, Oh My Zsh, Powerlevel10k theme
+2. **Configure your shell**: Zsh with custom aliases, PATH settings, and integrations (pyenv, nvm, gcloud)
+3. **Install 100+ applications**: Via Brewfile including cloud CLIs (Azure, GCP, AWS), container tools (Docker/Colima, kubectl), development tools (VS Code, Neovim), and productivity apps
+4. **Apply macOS tweaks**: System preferences optimized for developers (fast keyboard repeat, disabled auto-corrections, hidden menu bar, etc.)
+5. **Set up version managers**: Python (pyenv), Node.js (nvm), with automatic virtual environment handling
+6. **Configure Git**: Interactive prompts for your Git credentials
+
+The goal: **Go from fresh macOS to fully productive DevOps environment in ~30 minutes** (plus download time for apps).
+
 ## What's Included
 
 ### Tools & Stack
@@ -46,7 +59,7 @@ Before starting, ensure you have:
 1. **Generate SSH key** (if needed):
 
    ```zsh
-   curl https://raw.githubusercontent.com/YOUR_USERNAME/dotfiles/HEAD/ssh.sh | sh -s "your-email@example.com"
+   curl https://raw.githubusercontent.com/sharpz33/dotfiles-2023/HEAD/ssh.sh | sh -s "your-email@example.com"
    ```
 
    Then add the SSH key to GitHub/GitLab:
@@ -57,7 +70,7 @@ Before starting, ensure you have:
 2. **Clone this repository**:
 
    ```zsh
-   git clone --recursive git@github.com:YOUR_USERNAME/dotfiles.git ~/.dotfiles
+   git clone --recursive git@github.com:sharpz33/dotfiles-2023.git ~/.dotfiles
    ```
 
 3. **Run the installation**:
