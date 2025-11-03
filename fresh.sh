@@ -45,44 +45,12 @@ ln -s $(pwd)/.zshrc $HOME/.zshrc
 
 # Symlink all application configurations from ~/.config
 mkdir -p $HOME/.config
-
-# Karabiner-Elements
-rm -rf $HOME/.config/karabiner
-ln -s $(pwd)/config/karabiner $HOME/.config/karabiner
-
-# Neovim
-rm -rf $HOME/.config/nvim
-ln -s $(pwd)/config/nvim $HOME/.config/nvim
-
-# Zed editor
-rm -rf $HOME/.config/zed
-ln -s $(pwd)/config/zed $HOME/.config/zed
-
-# Terminal emulators
-rm -rf $HOME/.config/ghostty
-ln -s $(pwd)/config/ghostty $HOME/.config/ghostty
-
-rm -rf $HOME/.config/wezterm
-ln -s $(pwd)/config/wezterm $HOME/.config/wezterm
-
-rm -rf $HOME/.config/iterm2
-ln -s $(pwd)/config/iterm2 $HOME/.config/iterm2
-
-# CLI tools
-rm -rf $HOME/.config/gh
-ln -s $(pwd)/config/gh $HOME/.config/gh
-
-rm -rf $HOME/.config/glab-cli
-ln -s $(pwd)/config/glab-cli $HOME/.config/glab-cli
-
-rm -rf $HOME/.config/git
-ln -s $(pwd)/config/git $HOME/.config/git
-
-rm -rf $HOME/.config/btop
-ln -s $(pwd)/config/btop $HOME/.config/btop
-
-rm -rf $HOME/.config/ranger
-ln -s $(pwd)/config/ranger $HOME/.config/ranger
+for config_dir in config/*/; do
+  dir_name=$(basename "$config_dir")
+  rm -rf "$HOME/.config/$dir_name"
+  ln -s "$(pwd)/config/$dir_name" "$HOME/.config/$dir_name"
+  echo "Symlinked $dir_name"
+done
 
 # Update Homebrew recipes
 brew update
