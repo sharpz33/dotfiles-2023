@@ -34,10 +34,21 @@ The goal: **Go from fresh macOS to fully productive DevOps environment in ~30 mi
 - `aliases.zsh` - Custom aliases for DevOps workflows
 - `path.zsh` - PATH configuration for various tools
 - `.gitconfig` - Git configuration (email/name set during installation)
-- `karabiner.json` - Karabiner-Elements key remapping (Caps Lock → Hyper key, device-specific mappings)
 - `.macos` - macOS system preferences and tweaks
 - `Brewfile` - Homebrew packages and applications
 - `fresh.sh` - Automated installation script
+- `config/` - Application configurations:
+  - `karabiner/` - Karabiner-Elements key remapping (Caps Lock → Hyper key, device-specific mappings)
+  - `nvim/` - Neovim editor configuration
+  - `zed/` - Zed editor settings
+  - `ghostty/` - Ghostty terminal configuration
+  - `wezterm/` - WezTerm terminal configuration
+  - `iterm2/` - iTerm2 preferences
+  - `gh/` - GitHub CLI configuration
+  - `glab-cli/` - GitLab CLI configuration
+  - `git/` - Additional Git configuration
+  - `btop/` - btop system monitor theme
+  - `ranger/` - ranger file manager configuration
 
 ## Fresh macOS Setup
 
@@ -184,7 +195,11 @@ The `fresh.sh` script performs these actions automatically:
 1. ✅ **Installs Oh My Zsh** with Powerlevel10k theme
 2. ✅ **Installs Homebrew** (Intel or Apple Silicon)
 3. ✅ **Symlinks `.zshrc`** to your home directory
-4. ✅ **Symlinks Karabiner-Elements config** for key remapping
+4. ✅ **Symlinks all application configs** from `config/` directory:
+   - Editors: Neovim, Zed
+   - Terminals: Ghostty, WezTerm, iTerm2
+   - CLI tools: gh, glab, git, btop, ranger
+   - Karabiner-Elements for key remapping
 5. ✅ **Installs 100+ packages** from Brewfile (CLIs, apps, fonts)
 6. ✅ **Configures Git** with your credentials
 7. ✅ **Applies macOS tweaks** (keyboard speed, Finder, Dock, etc.)

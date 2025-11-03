@@ -1,0 +1,24 @@
+#theme = Violite
+#theme = 'Catppuccin Mocha'
+theme = "Catppuccin Mocha"
+
+#font-family = "JetBrains Mono"
+font-family = "MesloLGS NF"
+font-size = 14
+#font-family = "Roboto Mono for Powerline"
+font-thicken = true
+window-width = 120
+window-height = 100
+background-opacity = 0.95
+background-blur = 10
+#window-padding-x = 10
+#window-padding-y = 10
+window-padding-x = 16
+window-padding-y = 16
+window-padding-balance = true
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+clipboard-paste-protection = false
+term = xterm-256color
+keybind = shift+enter=text:\x1b\r
