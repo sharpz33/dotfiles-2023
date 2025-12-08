@@ -114,7 +114,7 @@ mas 'Kindle', id: 405399194
 mas 'Numbers', id: 409203825
 mas 'Pages', id: 409201541
 mas 'Perplexity: Ask Anything', id: 6714467650
-mas 'RSA Authenticator (SecurID)', id: 318038618  
+#mas 'RSA Authenticator (SecurID)', id: 318038618  
 mas 'Save to Raindrop.io', id: 1549370672
 mas 'Sync Folders', id: 530573877
 mas 'Tab Space', id: 1473726602
@@ -130,6 +130,7 @@ mas 'Video Speed Controller', id: 1588368612
 #mas 'Xcode', id: 497799835
 
 # Optional Tools
+cask 'brainfm' # Desktop client for brain.fm
 cask 'calibre' # E-books management software
 cask 'dropbox'
 cask 'flux-app'
@@ -155,7 +156,7 @@ cask 'zed'
 cask 'zoom'
 brew 'blueutil'
 brew 'smudge/smudge/nightlight'
-cask 'send-to-kindle'
+# cask 'send-to-kindle'
 # cask 'setapp'
 cask 'todoist-app'
 #cask 'logseq'
@@ -297,10 +298,13 @@ cask 'steam'
 brew 'innoextract'	#tool to extract GOG Windows-based installers
 
 # Crypto
-cask 'ledger-live'
+cask 'ledger-wallet'
 
 # AI Tools
-brew 'aider'
+#brew 'aider'
+cask 'antigravity'
+cask 'block-goose'
+brew 'block-goose-cli'
 cask 'claude'
 cask 'claude-code'
 brew 'gemini-cli'
@@ -320,13 +324,13 @@ brew 'pybind11'
 brew 'python@3.11'
 #brew 'pytorch'
 brew 'zlib'
-brew 'eigen'                 
-brew 'libomp'                
-brew 'libuv'                 
-brew 'lpeg'                  
-brew 'msgpack'               
-brew 'neovim'                
-brew 'python@3.10'           
-brew 'sleef'                 
+brew 'eigen'
+brew 'libomp'
+brew 'libuv'
+brew 'lpeg'
+brew 'msgpack'
+brew 'neovim'
+brew 'python@3.10'
+brew 'sleef'
 brew 'tcl-tk'
 #cask 'microsoft-auto-update'
