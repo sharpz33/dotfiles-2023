@@ -1,6 +1,7 @@
 # Tapstap 'azure/bicep'
-tap 'homebrew/bundle'
-tap 'homebrew/services'
+#tap 'homebrew/bundle'
+#tap 'homebrew/services'
+tap 'homebrew-ffmpeg/ffmpeg'
 tap 'browsh-org/homebrew-browsh'
 tap 'hashicorp/tap'
 tap 'microsoft/git'
@@ -32,7 +33,7 @@ brew 'mackup'
 brew 'mas' # Mac App Store manager
 brew 'p7zip'
 brew 'telnet'
-brew 'tldr'
+brew 'tealdeer' # replace tldr
 brew 'tree'
 brew 'watch'
 brew 'wget'
@@ -89,6 +90,7 @@ brew 'btop' # Resource monitor
 brew 'fd' # Simple, fast and user-friendly alternative to find
 brew 'glab' #GitLab CLI
 brew 'gh'
+brew 'ghostscript'
 brew 'imagemagick' #images transformations
 brew 'lazygit' #Simple terminal UI for git commands
 brew 'ripgrep' #Search tool like grep and The Silver Searcher 
@@ -96,7 +98,7 @@ brew 'mplayer' # watch videos from terminal
 brew 'mpv' # watch videos from terminal
 brew 'ncdu' # NCurses Disk Usage
 brew 'ranger' # file manager
-brew 'speedtest-cli'
+#brew 'speedtest' # replaced speedtest-cli
 brew 'tmux'
 brew 'yt-dlp'
 brew 'zoxide' # Shell extension to navigate your filesystem faster
@@ -130,28 +132,30 @@ mas 'Video Speed Controller', id: 1588368612
 #mas 'Xcode', id: 497799835
 
 # Optional Tools
-cask 'brainfm' # Desktop client for brain.fm
+#cask 'brainfm' # Desktop client for brain.fm
+#cask 'basictex' # Compact TeX distribution as alternative to the full TeX Live / MacTeX
 cask 'calibre' # E-books management software
 cask 'dropbox'
 cask 'flux-app'
-cask 'telegram'
+#cask 'telegram'
 cask 'spotify'
 cask 'discord' 
-cask 'hazel' #test
+#cask 'hazel' #test
 cask 'maccy' # clipboard manager
+cask 'mactex-no-gui' # Full TeX Live distribution without GUI applications
 cask 'notion'
 #cask 'nozbe'
 cask 'obs'
 cask 'obsidian'
 cask 'postman'
 cask 'raindropio'
-cask 'reader' # Readwise Reader
+#cask 'reader' # Readwise Reader
 cask 'rocket'
 cask 'signal'
 cask 'superhuman'
 cask 'visual-studio-code'
 cask 'vlc'
-cask 'youtube-downloader'
+#cask 'youtube-downloader'
 cask 'zed'
 cask 'zoom'
 brew 'blueutil'
@@ -180,9 +184,12 @@ cask 'todoist-app'
 
 # Dev Tools
 #cask 'anaconda'
+brew 'openjdk@21'
+brew "homebrew-ffmpeg/ffmpeg/ffmpeg", args: ["with-libvpx"]
 brew 'jq'
 brew 'git-filter-repo'
 brew 'nvm' # node version manager
+brew 'maven' # Java-based project management
 brew 'protobuf'
 brew 'qemu'
 brew 'rust'
@@ -208,10 +215,11 @@ brew 'go'
 # python
 brew 'python@3.13'
 brew 'pyenv'
-brew 'pyenv-virtualenvwrapper'
+#brew 'pyenv-virtualenvwrapper'
 brew 'pandoc'
 # docker
 brew 'colima'
+brew 'docker'
 brew 'docker-buildx'
 brew 'docker-completion'
 brew 'docker-compose'
@@ -264,7 +272,6 @@ brew 'aws-iam-authenticator'
 #brew 'hashicorp/tap/terraform-ls'
 #brew 'weaveworks/tap/eksctl'
 #cask 'git-credential-manager-core'
-#cask 'docker'
 #cask 'insomnia'
 #cask 'postman'
 #cask 'thonny'
@@ -285,7 +292,7 @@ cask 'adobe-creative-cloud'
 cask 'ogdesign-eagle'
 
 # 3D printing tools
-cask 'bambu-studio'
+cask 'bambu-studio' # coś się wysypało!!!
 #cask 'prusaslicer'
 #cask 'ultimaker-cura'
 
@@ -294,7 +301,7 @@ cask 'bambu-studio'
 cask 'caido'		#proxy tool
 
 # Games
-cask 'steam'
+#cask 'steam'
 brew 'innoextract'	#tool to extract GOG Windows-based installers
 
 # Crypto
@@ -307,6 +314,7 @@ cask 'block-goose'
 brew 'block-goose-cli'
 cask 'claude'
 cask 'claude-code'
+cask 'codex'
 brew 'gemini-cli'
 brew 'ollama'
 cask 'superwhisper'
@@ -314,7 +322,6 @@ cask 'superwhisper'
 # cask 'windsurf'
 
 ## THINK ABOUT THIS LATER
-brew 'docker'
 brew 'gdbm'
 brew 'libtommath'
 brew 'libvterm'
