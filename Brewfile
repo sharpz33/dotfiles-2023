@@ -1,6 +1,4 @@
 # Tapstap 'azure/bicep'
-#tap 'homebrew/bundle'
-#tap 'homebrew/services'
 tap 'homebrew-ffmpeg/ffmpeg'
 tap 'browsh-org/homebrew-browsh'
 tap 'hashicorp/tap'
@@ -57,15 +55,13 @@ cask 'font-source-sans-3'
 
 # GUI General Tools
 cask '1password'
-#cask 'alfred'
 cask 'arc'
 cask 'zen'
-#cask 'bartender'
 cask 'brave-browser'
 cask 'commander-one'
 cask 'cyberduck'
 cask 'deepl'
-cask 'firefox'
+# cask 'firefox'
 cask 'freedom'
 cask 'ghostty' # Terminal emulator that uses platform-native UI and GPU acceleration
 cask 'iterm2'
@@ -81,7 +77,7 @@ cask 'raycast'
 cask 'rectangle'
 cask 'rize' #AI time tracker
 cask 'textsniper'
-cask 'wezterm' #terminal with lua configuration
+# cask 'wezterm' #terminal with lua configuration
 
 # CLI General Tools
 cask '1password-cli'
@@ -98,8 +94,8 @@ brew 'mplayer' # watch videos from terminal
 brew 'mpv' # watch videos from terminal
 brew 'ncdu' # NCurses Disk Usage
 brew 'ranger' # file manager
-#brew 'speedtest' # replaced speedtest-cli
 brew 'tmux'
+brew 'weasyprint' # Convert HTML to PDF
 brew 'yt-dlp'
 brew 'zoxide' # Shell extension to navigate your filesystem faster
 #brew 'ytfzf' # watch yt videos from terminal
@@ -115,11 +111,11 @@ mas 'Keynote', id: 409183694
 mas 'Kindle', id: 405399194
 mas 'Numbers', id: 409203825
 mas 'Pages', id: 409201541
-mas 'Perplexity: Ask Anything', id: 6714467650
+#mas 'Perplexity: Ask Anything', id: 6714467650
 #mas 'RSA Authenticator (SecurID)', id: 318038618  
 mas 'Save to Raindrop.io', id: 1549370672
-mas 'Sync Folders', id: 530573877
-mas 'Tab Space', id: 1473726602
+#mas 'Sync Folders', id: 530573877
+#mas 'Tab Space', id: 1473726602
 mas 'Video Speed Controller', id: 1588368612
 #mas 'Accelerate for Safari', id: 1459809092
 #mas 'AdBlock Pro', id: 1018301773
@@ -133,14 +129,12 @@ mas 'Video Speed Controller', id: 1588368612
 
 # Optional Tools
 #cask 'brainfm' # Desktop client for brain.fm
-#cask 'basictex' # Compact TeX distribution as alternative to the full TeX Live / MacTeX
 cask 'calibre' # E-books management software
 cask 'dropbox'
 cask 'flux-app'
 #cask 'telegram'
 cask 'spotify'
 cask 'discord' 
-#cask 'hazel' #test
 cask 'maccy' # clipboard manager
 cask 'mactex-no-gui' # Full TeX Live distribution without GUI applications
 cask 'notion'
@@ -183,7 +177,6 @@ cask 'todoist-app'
 #brew 'bluetoothconnector'
 
 # Dev Tools
-#cask 'anaconda'
 brew 'openjdk@21'
 brew "homebrew-ffmpeg/ffmpeg/ffmpeg", args: ["with-libvpx"]
 brew 'jq'
@@ -193,29 +186,13 @@ brew 'maven' # Java-based project management
 brew 'protobuf'
 brew 'qemu'
 brew 'rust'
-#brew 'ffmpeg'
 #brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
-#brew 'sass/sass/sass'
-#brew 'shivammathur/php/php'
-#brew 'harfbuzz'
-#brew 'pango'
-#brew 'freetds'
 brew 'go'
-#brew 'gobject-introspection'
-#brew 'httpd'
-#brew 'libpq'
-#brew 'mysql'
-#brew 'nghttp2'
-#brew 'ncdu'
-#brew 'node'
-#brew 'wimlib'
-#cask 'tableplus' # sql gui client
 
 # DevOps Tools
 # python
 brew 'python@3.13'
 brew 'pyenv'
-#brew 'pyenv-virtualenvwrapper'
 brew 'pandoc'
 # docker
 brew 'colima'
@@ -298,7 +275,7 @@ cask 'bambu-studio' # coś się wysypało!!!
 
 # Hack/Security Tools
 #cask 'burp-suite'	#proxy tool
-cask 'caido'		#proxy tool
+#cask 'caido'		#proxy tool
 
 # Games
 #cask 'steam'
@@ -327,8 +304,8 @@ brew 'libtommath'
 brew 'libvterm'
 brew 'luv'
 brew 'unibilium'
-brew 'pybind11'
-brew 'python@3.11'
+#brew 'pybind11'
+#brew 'python@3.11'
 #brew 'pytorch'
 brew 'zlib'
 brew 'eigen'
@@ -337,7 +314,7 @@ brew 'libuv'
 brew 'lpeg'
 brew 'msgpack'
 brew 'neovim'
-brew 'python@3.10'
+#brew 'python@3.10'
 brew 'sleef'
 brew 'tcl-tk'
 #cask 'microsoft-auto-update'
