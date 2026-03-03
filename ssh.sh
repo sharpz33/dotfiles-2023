@@ -1,20 +1,36 @@
-#!/bin/sh
+#!/usr/bin/env bash
+# ssh.sh — generuje SSH key i konfiguruje ssh-agent
+# Użycie: ./ssh.sh your-email@example.com
+# Uruchamiaj PRZED fresh.sh (potrzebujesz SSH żeby sklonować dotfiles)
 
-echo "Generating a new SSH key for GitHub..."
+echo "Generating a new SSH key..."
 
-# Generating a new SSH key
-# https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key
-ssh-keygen -t ed25519 -C $1 -f ~/.ssh/id_ed25519
+# Generate ED25519 key
+# https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+ssh-keygen -t ed25519 -C "$1" -f ~/.ssh/id_ed25519
 
-# Adding your SSH key to the ssh-agent
-# https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent
+# Start ssh-agent and add key
 eval "$(ssh-agent -s)"
 
-touch ~/.ssh/config
-echo "Host *\n AddKeysToAgent yes\n UseKeychain yes\n IdentityFile ~/.ssh/id_ed25519" | tee ~/.ssh/config
+# Configure ssh-agent (UseKeychain for macOS Keychain)
+mkdir -p ~/.ssh
+cat >> ~/.ssh/config <<EOF
 
-ssh-add -K ~/.ssh/id_ed25519
+Host *
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
+EOF
 
-# Adding your SSH key to your GitHub account
-# https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account
-echo "run 'pbcopy < ~/.ssh/id_ed25519.pub' and paste that into GitHub"
+# Add key to agent (--apple-use-keychain replaces deprecated -K on macOS 12+)
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+
+echo ""
+echo "Klucz publiczny (skopiuj i dodaj do GitHub/GitLab):"
+echo ""
+cat ~/.ssh/id_ed25519.pub
+echo ""
+echo "Lub uruchom: pbcopy < ~/.ssh/id_ed25519.pub"
+echo ""
+echo "GitHub:      https://github.com/settings/keys"
+echo "GFT GitLab:  https://git.gft.com/-/profile/keys"

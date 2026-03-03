@@ -41,7 +41,7 @@ fi
 
 # Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
 rm -rf $HOME/.zshrc
-ln -s $(pwd)/.zshrc $HOME/.zshrc
+ln -s "$(pwd)/.zshrc" $HOME/.zshrc
 
 # Symlink all application configurations from ~/.config
 mkdir -p $HOME/.config
@@ -121,9 +121,6 @@ if command -v code &>/dev/null; then
 else
   echo "VS Code not found – extensions skipped (install VS Code first or run: cat vscode-extensions.txt | xargs -L1 code --install-extension)"
 fi
-
-# Symlink the Mackup config file to the home directory
-#ln -s .mackup.cfg $HOME/.mackup.cfg
 
 # Configure Git
 git config --global user.name "$GIT_NAME"
