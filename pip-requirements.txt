@@ -1,0 +1,9 @@
+# Global pip packages
+# Install with: pip3 install -r pip-requirements.txt
+# Note: mlx requires Apple Silicon (M1/M2/M3)
+
+mlx
+numpy
+pillow
+pybind11
+six
