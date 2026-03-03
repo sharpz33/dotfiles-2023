@@ -37,6 +37,10 @@ The goal: **Go from fresh macOS to fully productive DevOps environment in ~30 mi
 - `.macos` - macOS system preferences and tweaks
 - `Brewfile` - Homebrew packages and applications
 - `fresh.sh` - Automated installation script
+- `bootstrap-projects.sh` - Clones all ~/Projects repositories on a new machine
+- `npm-globals.txt` - Global npm packages to install
+- `pip-requirements.txt` - Global pip packages to install
+- `vscode-extensions.txt` - VS Code extensions to install
 - `config/` - Application configurations:
   - `karabiner/` - Karabiner-Elements key remapping (Caps Lock → Hyper key, device-specific mappings)
   - `nvim/` - Neovim editor configuration
@@ -130,34 +134,43 @@ cd ~/.dotfiles
 
 2. **Oh My Zsh installation** (if not present):
    - May ask to change your default shell to Zsh → Answer **yes**
-   - Will create `~/.oh-my-zsh` directory
 
 3. **Homebrew installation** (if not present):
-   - Downloads and installs Homebrew (auto-detects Intel vs Apple Silicon)
+   - Auto-detects Intel vs Apple Silicon
    - May prompt for your Mac password → Enter it
-   - Takes 2-5 minutes
 
 4. **Package installation via Brewfile:**
    - Installs 100+ applications and tools
-   - This is the longest step - **expect 15-30 minutes**
-   - You'll see progress as each package installs
-   - Some apps (like Docker, VS Code) are large downloads
+   - This is the longest step — **expect 15-30 minutes**
 
-5. **Git configuration:**
-   - Sets your git user name and email globally
+5. **Oh My Zsh plugins** (git clone):
+   - `zsh-syntax-highlighting`, `zsh-autosuggestions`, `zsh-completions`
+   - Cloned to `~/.dotfiles/plugins/`
 
-6. **macOS preferences:**
-   - Applies system tweaks from `.macos`
-   - May prompt for password to change system settings
-   - Finder and Dock will restart automatically
+6. **Node.js via nvm** — latest LTS, set as default
+
+7. **npm global packages** — from `npm-globals.txt`
+
+8. **Python via pyenv** — latest 3.x, set as global
+
+9. **pip global packages** — from `pip-requirements.txt`
+
+10. **VS Code extensions** — from `vscode-extensions.txt` (~60 extensions)
+
+11. **Git configuration** — sets your git user name and email globally
+
+12. **macOS preferences** — applies system tweaks from `.macos` (Finder, Dock, keyboard, etc.)
+
+13. **SSH key setup** — generates ED25519 key if missing, shows public key, **pauses** so you can add it to GitHub and GFT GitLab
+
+14. **~/Projects clone** (optional) — asks if you want to clone all repos via `bootstrap-projects.sh`
 
 **Important notes:**
-- ☕ **Grab coffee** - the Brewfile installation takes time
+- ☕ **Grab coffee** — Brewfile + VS Code extensions take the most time
 - 🔒 You may be asked for your **Mac password** multiple times
 - 🚫 Don't close Terminal during installation
-- 📱 Some apps may ask for permissions (camera, microphone, etc.) - you can configure these later
 
-**Time estimate:** 20-45 minutes (depends on internet speed)
+**Time estimate:** 30-60 minutes (depends on internet speed)
 
 ### Step 5: Restart Your Mac
 
@@ -168,22 +181,93 @@ sudo shutdown -r now
 
 After restart, open Terminal and you should see the **Powerlevel10k prompt** with your new configuration!
 
-### Step 6: Post-Installation (Optional)
+### Step 5: Restart Your Mac
 
-**Configure app-specific settings:**
-- Log into 1Password, browsers, cloud services
-- Configure Raycast keyboard shortcuts
-- Set up IDE preferences (VS Code, Neovim)
-- Configure terminal themes if needed (`p10k configure`)
-
-**Verify installation:**
 ```zsh
-# Check key tools are installed
+sudo shutdown -r now
+```
+
+### Step 6: Post-Installation Checklist
+
+Po restarcie przejdź przez poniższą listę. Część kroków jest wymagana, część opcjonalna.
+
+---
+
+#### Terminal i prompt
+
+**Ustaw Nerd Font w terminalu** (wymagane dla ikon Powerlevel10k):
+- **iTerm2**: Preferences → Profiles → Text → Font → wybierz `GoMono Nerd Font` lub `MesloLGS NF`
+- **Ghostty**: już skonfigurowany przez symlink `~/.config/ghostty/`
+- **WezTerm**: już skonfigurowany przez symlink `~/.config/wezterm/`
+
+**Powerlevel10k** — powinien załadować się automatycznie z `~/.p10k.zsh`. Jeśli prompt wygląda niepoprawnie:
+```zsh
+p10k configure
+```
+
+---
+
+#### Karabiner-Elements (Caps Lock → Hyper key)
+
+Konfiguracja jest już zasymlinkowna (`~/.config/karabiner/`), ale macOS wymaga ręcznego zatwierdzenia uprawnień:
+
+1. **System Settings → Privacy & Security → Accessibility** → włącz `Karabiner-Elements`
+2. **System Settings → Privacy & Security → Input Monitoring** → włącz `karabiner_grabber` i `karabiner_observer`
+3. Jeśli Karabiner nie działa po zatwierdzeniu — uruchom ponownie usługę:
+   ```zsh
+   sudo launchctl kickstart -k system/org.pqrs.karabiner.karabiner_grabber
+   ```
+4. Zweryfikuj: Caps Lock powinien działać jako Hyper (cmd+ctrl+opt+shift)
+
+---
+
+#### Zed
+
+Ustawienia są zasymlinkowne przez `~/.config/zed/`. Przy pierwszym uruchomieniu:
+
+1. Otwórz Zed → zaloguj się na konto (opcjonalne, dla sync ustawień)
+2. Sprawdź czy extensions są zainstalowane: `Cmd+Shift+X`
+3. Jeśli brakuje rozszerzeń — doinstaluj ręcznie z marketplace Zed
+
+---
+
+#### 1Password
+
+1. Zaloguj się do 1Password
+2. Włącz SSH agent: **Settings → Developer → Use SSH Agent**
+3. Dodaj do `~/.ssh/config`:
+   ```
+   Host *
+     IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+   ```
+
+---
+
+#### Docker / Colima
+
+Colima (Docker bez Docker Desktop) wymaga ręcznego uruchomienia przy pierwszym użyciu:
+```zsh
+colima start
+docker ps  # weryfikacja
+```
+
+Aby Colima startował automatycznie przy logowaniu:
+```zsh
+brew services start colima
+```
+
+---
+
+#### Weryfikacja instalacji
+
+```zsh
 terraform --version
 kubectl version --client
-python --version
+python3 --version
 node --version
 docker --version
+gh auth status
+az --version
 ```
 
 ---
@@ -195,14 +279,16 @@ The `fresh.sh` script performs these actions automatically:
 1. ✅ **Installs Oh My Zsh** with Powerlevel10k theme
 2. ✅ **Installs Homebrew** (Intel or Apple Silicon)
 3. ✅ **Symlinks `.zshrc`** to your home directory
-4. ✅ **Symlinks all application configs** from `config/` directory:
-   - Editors: Neovim, Zed
-   - Terminals: Ghostty, WezTerm, iTerm2
-   - CLI tools: gh, glab, git, btop, ranger
-   - Karabiner-Elements for key remapping
+4. ✅ **Symlinks all application configs** from `config/` directory
 5. ✅ **Installs 100+ packages** from Brewfile (CLIs, apps, fonts)
-6. ✅ **Configures Git** with your credentials
-7. ✅ **Applies macOS tweaks** (keyboard speed, Finder, Dock, etc.)
+6. ✅ **Installs Oh My Zsh plugins** via git clone → `~/.dotfiles/plugins/`
+7. ✅ **Installs Node.js** (latest LTS via nvm) + npm global packages
+8. ✅ **Installs Python** (latest 3.x via pyenv) + pip global packages
+9. ✅ **Installs VS Code extensions** (~60 extensions)
+10. ✅ **Configures Git** with your credentials
+11. ✅ **Applies macOS tweaks** (keyboard speed, Finder, Dock, etc.)
+12. ✅ **Sets up SSH key** + pauses to let you add it to GitHub/GitLab
+13. ✅ **Clones ~/Projects** repositories (optional, via `bootstrap-projects.sh`)
 
 **Result:** Fully configured DevOps/Cloud engineering environment ready to use!
 
