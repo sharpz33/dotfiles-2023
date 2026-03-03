@@ -16,10 +16,6 @@ config/zed/prompts/
 # iTerm2 runtime files
 config/iterm2/sockets/
 
-# Neovim auto-generated
-config/nvim/doc/tags
-config/nvim/lazy-lock.json
-
 # Oh My Zsh plugins (managed by fresh.sh via git clone)
 plugins/
 
