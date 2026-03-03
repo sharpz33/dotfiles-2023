@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 echo "Setting up your Mac..."
 
@@ -60,22 +60,23 @@ brew tap homebrew/bundle
 brew bundle --file ./Brewfile
 
 # ─── OH MY ZSH PLUGINS ───────────────────────────────────────────────────────
-# These are referenced in .zshrc but not installed by oh-my-zsh by default
-ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+# ZSH_CUSTOM=$DOTFILES w .zshrc → pluginy muszą być w $DOTFILES/plugins/
+PLUGINS_DIR="$(pwd)/plugins"
+mkdir -p "$PLUGINS_DIR"
 
-[ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ] && \
+[ ! -d "$PLUGINS_DIR/zsh-syntax-highlighting" ] && \
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
-  "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+  "$PLUGINS_DIR/zsh-syntax-highlighting"
 
-[ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ] && \
+[ ! -d "$PLUGINS_DIR/zsh-autosuggestions" ] && \
   git clone https://github.com/zsh-users/zsh-autosuggestions \
-  "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+  "$PLUGINS_DIR/zsh-autosuggestions"
 
-[ ! -d "$ZSH_CUSTOM/plugins/zsh-completions" ] && \
+[ ! -d "$PLUGINS_DIR/zsh-completions" ] && \
   git clone https://github.com/zsh-users/zsh-completions \
-  "$ZSH_CUSTOM/plugins/zsh-completions"
+  "$PLUGINS_DIR/zsh-completions"
 
-echo "Oh My Zsh plugins installed"
+echo "Oh My Zsh plugins installed → $PLUGINS_DIR"
 
 # ─── NODE (nvm) ──────────────────────────────────────────────────────────────
 export NVM_DIR="$HOME/.nvm"

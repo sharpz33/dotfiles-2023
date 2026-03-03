@@ -11,7 +11,7 @@ export DOTFILES=$HOME/.dotfiles
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export PATH=$HOME/.local/bin:$PATH
-export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:usr/sbin:/sbin
+export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -92,7 +92,7 @@ source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
  export LANG=en_US.UTF-8
- export LC_ALL=C
+ export LC_ALL=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
