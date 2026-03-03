@@ -119,6 +119,7 @@ alias vim='nvim'
 alias lgit='lazygit'
 alias maps='telnet mapscii.me'
 alias ytd='yt-dlp -f "bestvideo+bestaudio/best" --merge-output-format mp4 -o "%(uploader)s %(upload_date>%Y-%m-%d)s %(title)s [%(id)s].%(ext)s"'
+alias glo='git log --oneline --decorate --graph --all -30'  # override oh-my-zsh git plugin
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
