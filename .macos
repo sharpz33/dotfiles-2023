@@ -231,11 +231,14 @@ defaults write -g CGFontRenderingFontSmoothingDisabled -bool FALSE
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
-# Save screenshots to the desktop
-# defaults write com.apple.screencapture location -string "${HOME}/Desktop"
+# Save screenshots to Documents
+defaults write com.apple.screencapture location -string "${HOME}/Documents"
 
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
 # defaults write com.apple.screencapture type -string "png"
+
+# Disable floating thumbnail after screenshot
+defaults write com.apple.screencapture show-thumbnail -bool false
 
 # Disable shadow in screenshots
 # defaults write com.apple.screencapture disable-shadow -bool true
@@ -246,6 +249,61 @@ defaults write NSGlobalDomain AppleFontSmoothing -int 1
 
 # Enable HiDPI display modes (requires restart)
 # sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
+
+###############################################################################
+# Keyboard Shortcuts                                                          #
+###############################################################################
+
+# Screenshot shortcuts — przesunięte o 1 klawisz vs macOS defaults:
+#   ⌘⇧3 → toolbar (domyślnie: ⌘⇧5)
+#   ⌘⇧4 → pełny ekran do pliku (domyślnie: ⌘⇧3)
+#   ⌘⇧5 → zaznaczenie do pliku (domyślnie: ⌘⇧4)
+#   ⌘⇧⌃4 → pełny ekran do schowka
+#   ⌘⇧⌃5 → zaznaczenie do schowka
+PLIST=~/Library/Preferences/com.apple.symbolichotkeys.plist
+
+# 184: Screenshot toolbar → ⌘⇧3
+/usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:184:enabled bool true" \
+  -c "Set :AppleSymbolicHotKeys:184:value:type standard" \
+  -c "Set :AppleSymbolicHotKeys:184:value:parameters:0 51" \
+  -c "Set :AppleSymbolicHotKeys:184:value:parameters:1 20" \
+  -c "Set :AppleSymbolicHotKeys:184:value:parameters:2 1179648" \
+  "$PLIST"
+
+# 28: Capture screen → file → ⌘⇧4
+/usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:28:enabled bool true" \
+  -c "Set :AppleSymbolicHotKeys:28:value:type standard" \
+  -c "Set :AppleSymbolicHotKeys:28:value:parameters:0 52" \
+  -c "Set :AppleSymbolicHotKeys:28:value:parameters:1 21" \
+  -c "Set :AppleSymbolicHotKeys:28:value:parameters:2 1179648" \
+  "$PLIST"
+
+# 29: Capture screen → clipboard → ⌘⇧⌃4
+/usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:29:enabled bool true" \
+  -c "Set :AppleSymbolicHotKeys:29:value:type standard" \
+  -c "Set :AppleSymbolicHotKeys:29:value:parameters:0 52" \
+  -c "Set :AppleSymbolicHotKeys:29:value:parameters:1 21" \
+  -c "Set :AppleSymbolicHotKeys:29:value:parameters:2 1572864" \
+  "$PLIST"
+
+# 30: Capture selection → clipboard → ⌘⇧⌃5
+/usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:30:enabled bool true" \
+  -c "Set :AppleSymbolicHotKeys:30:value:type standard" \
+  -c "Set :AppleSymbolicHotKeys:30:value:parameters:0 53" \
+  -c "Set :AppleSymbolicHotKeys:30:value:parameters:1 23" \
+  -c "Set :AppleSymbolicHotKeys:30:value:parameters:2 1572864" \
+  "$PLIST"
+
+# 31: Capture selection → file → ⌘⇧5
+/usr/libexec/PlistBuddy -c "Set :AppleSymbolicHotKeys:31:enabled bool true" \
+  -c "Set :AppleSymbolicHotKeys:31:value:type standard" \
+  -c "Set :AppleSymbolicHotKeys:31:value:parameters:0 53" \
+  -c "Set :AppleSymbolicHotKeys:31:value:parameters:1 23" \
+  -c "Set :AppleSymbolicHotKeys:31:value:parameters:2 1179648" \
+  "$PLIST"
+
+# Reload shortcuts
+/System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 
 ###############################################################################
 # Finder                                                                      #
