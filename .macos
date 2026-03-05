@@ -165,7 +165,7 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 15
 # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
 # `Inches`, `en_GB` with `en_US`, and `true` with `false`.
 defaults write NSGlobalDomain AppleLanguages -array "en" "pl"
-defaults write NSGlobalDomain AppleLocale -string "pl_PL@currency=PLN"
+defaults write NSGlobalDomain AppleLocale -string "en_001@currency=PLN"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleTemperatureUnit -string "Celsius"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
@@ -227,9 +227,8 @@ sudo pmset -a hibernatemode 0
 # Re-enable subpixel antialiasing
 defaults write -g CGFontRenderingFontSmoothingDisabled -bool FALSE
 
-# Require password immediately after sleep or screen saver begins
-defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 0
+# Disable screensaver completely
+defaults -currentHost write com.apple.screensaver idleTime -int 0
 
 # Save screenshots to Documents
 defaults write com.apple.screencapture location -string "${HOME}/Documents"
