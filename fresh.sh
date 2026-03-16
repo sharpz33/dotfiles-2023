@@ -127,6 +127,13 @@ git config --global user.name "$GIT_NAME"
 git config --global user.email "$GIT_EMAIL"
 echo "Git configured with name: $GIT_NAME and email: $GIT_EMAIL"
 
+# ─── DEFAULT APPS (duti) ──────────────────────────────────────────────────────
+if echo "$GIT_EMAIL" | grep -qi "gft.com"; then
+  CORPORATE=true bash "$(pwd)/duti-defaults.sh"
+else
+  bash "$(pwd)/duti-defaults.sh"
+fi
+
 # Set macOS preferences - we will run this last because this will reload the shell
 source ./.macos
 

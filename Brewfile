@@ -70,24 +70,26 @@ cask 'lulu'
 cask 'microsoft-teams' # MS Teams
 cask 'monitorcontrol'
 cask 'notion-calendar'
-cask 'omnidisksweeper' # disk space analyser
 cask 'raycast'
 cask 'rectangle'
 cask 'rize' #AI time tracker
 cask 'textsniper'
+#cask 'omnidisksweeper' # disk space analyser
 # cask 'wezterm' #terminal with lua configuration
 
 # CLI General Tools
-cask '1password-cli'
-brew 'browsh'
+cask '1password-cli' # 1Password CLI
 brew 'btop' # Resource monitor
+brew 'dust' # More intuitive version of du in rust
+brew 'duti' # Select default apps for documents and URL schemes on macOS
 brew 'fd' # Simple, fast and user-friendly alternative to find
-brew 'glab' #GitLab CLI
-brew 'gh'
-brew 'ghostscript'
-brew 'imagemagick' #images transformations
-brew 'lazygit' #Simple terminal UI for git commands
-brew 'ripgrep' #Search tool like grep and The Silver Searcher 
+brew 'glab' #  Open-source GitLab command-line tool
+brew 'gh' # GitHub command-line tool
+brew 'ghostscript' # Interpreter for PostScript and PDF
+brew 'googleworkspace-cli' # CLI for Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more
+brew 'imagemagick' # Tools and libraries to manipulate images in select formats
+brew 'lazygit' # Simple terminal UI for git commands
+brew 'ripgrep' # Search tool like grep and The Silver Searcher 
 brew 'mplayer' # watch videos from terminal
 brew 'mpv' # watch videos from terminal
 brew 'ncdu' # NCurses Disk Usage
@@ -96,6 +98,7 @@ brew 'tmux'
 brew 'weasyprint' # Convert HTML to PDF
 brew 'yt-dlp'
 brew 'zoxide' # Shell extension to navigate your filesystem faster
+#brew 'browsh'
 #brew 'ytfzf' # watch yt videos from terminal
 #brew 'lowfi' # simple CLI lofi player
 
@@ -161,7 +164,7 @@ cask 'todoist-app'
 #brew 'tesseract'
 #brew 'ffmpeg'
 #brew 'gcalcli'
-#brew 'glow'
+brew 'glow'
 #brew 'lastpass-cli'
 #brew 'libfido2'
 #brew 'mplayer'
@@ -180,6 +183,7 @@ brew "homebrew-ffmpeg/ffmpeg/ffmpeg", args: ["with-libvpx"]
 brew 'jq'
 brew 'git-filter-repo'
 brew 'nvm' # node version manager
+brew 'markdownlint-cli2'
 brew 'maven' # Java-based project management
 brew 'protobuf'
 brew 'qemu'
@@ -278,6 +282,7 @@ cask 'bambu-studio' # coś się wysypało!!!
 # Games
 #cask 'steam'
 brew 'innoextract'	#tool to extract GOG Windows-based installers
+cask 'vcmi'
 
 # Crypto
 cask 'ledger-wallet'
