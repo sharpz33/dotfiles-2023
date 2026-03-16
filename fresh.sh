@@ -134,6 +134,12 @@ else
   bash "$(pwd)/duti-defaults.sh"
 fi
 
+# ─── RTK (Claude Code token optimizer) ────────────────────────────────────────
+if command -v rtk &>/dev/null; then
+  rtk init -g --hook-only
+  echo "RTK hook installed for Claude Code"
+fi
+
 # Set macOS preferences - we will run this last because this will reload the shell
 source ./.macos
 

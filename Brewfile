@@ -215,6 +215,7 @@ brew 'aztfexport'
 cask 'gcloud-cli'
 # databases
 brew 'libpq'
+brew 'mdbtools' # Tools to facilitate the use of Microsoft Access databases
 cask 'dbeaver-community'
 # terraform
 brew 'hashicorp/tap/terraform'
@@ -299,6 +300,7 @@ brew 'gemini-cli'
 brew 'ollama'
 brew 'openai-whisper'
 brew 'opencode'
+brew 'rtk' # CLI proxy to minimize LLM token consumption
 cask 'superwhisper'
 # cask 'cursor'
 # cask 'windsurf'
