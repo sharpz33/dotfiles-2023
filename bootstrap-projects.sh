@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 # bootstrap-projects.sh
 # Klonuje wszystkie repozytoria do ~/Projects na nowej maszynie.
 #
