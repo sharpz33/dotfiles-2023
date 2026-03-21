@@ -1,12 +1,14 @@
-#theme = Violite
-#theme = 'Catppuccin Mocha'
-theme = "Catppuccin Mocha"
+# === THEME ===
+theme = light:Gruvbox Light,dark:Catppuccin Mocha
 
+# === FONT ===
 #font-family = "JetBrains Mono"
 font-family = "MesloLGS NF"
 font-size = 14
 #font-family = "Roboto Mono for Powerline"
 font-thicken = true
+
+# === WINDOW ===
 window-width = 120
 window-height = 100
 background-opacity = 0.95
@@ -16,9 +18,40 @@ background-blur = 10
 window-padding-x = 16
 window-padding-y = 16
 window-padding-balance = true
+#window-save-state = always
+
+# === CURSOR ===
 cursor-style = block
 cursor-style-blink = false
-shell-integration-features = no-cursor
-clipboard-paste-protection = false
+
+# === TERMINAL ===
 term = xterm-256color
+scrollback-limit = 100000000
+confirm-close-surface = true
+mouse-hide-while-typing = true
+
+# === SHELL INTEGRATION ===
+shell-integration = detect
+shell-integration-features = no-cursor,sudo,title
+
+# === CLIPBOARD ===
+clipboard-paste-protection = false
+copy-on-select = true
+clipboard-trim-trailing-spaces = true
+
+# === macOS ===
+#macos-option-as-alt = true
+
+# === QUICK TERMINAL (cmd+; z dowolnej apki) ===
+keybind = global:cmd+;=toggle_quick_terminal
+quick-terminal-position = top
+quick-terminal-autohide = true
+quick-terminal-animation-duration = 0.15
+
+# === KEYBINDS ===
 keybind = shift+enter=text:\x1b\r
+keybind = cmd+shift+r=reload_config
+keybind = cmd+shift+s=write_scrollback_file:open
+keybind = cmd+shift+alt+s=write_scrollback_file:paste
+keybind = cmd+up=jump_to_prompt:-1
+keybind = cmd+down=jump_to_prompt:1

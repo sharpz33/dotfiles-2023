@@ -77,7 +77,7 @@ cask 'textsniper'
 #cask 'omnidisksweeper' # disk space analyser
 # cask 'wezterm' #terminal with lua configuration
 
-# CLI General Tools
+# CLI/TUI General Tools
 cask '1password-cli' # 1Password CLI
 brew 'btop' # Resource monitor
 brew 'dust' # More intuitive version of du in rust
@@ -94,6 +94,7 @@ brew 'mplayer' # watch videos from terminal
 brew 'mpv' # watch videos from terminal
 brew 'ncdu' # NCurses Disk Usage
 brew 'ranger' # file manager
+brew 'spotify_player' # Command driven spotify player
 brew 'tmux'
 brew 'weasyprint' # Convert HTML to PDF
 brew 'yt-dlp'
@@ -169,7 +170,6 @@ brew 'glow'
 #brew 'libfido2'
 #brew 'mplayer'
 #brew 'mps-youtube'
-#brew 'spotify-tui'
 #cask 'lunar'
 #cask 'mpv'
 #cask 'qnapi'
@@ -182,20 +182,23 @@ brew 'openjdk@21'
 brew "homebrew-ffmpeg/ffmpeg/ffmpeg", args: ["with-libvpx"]
 brew 'jq'
 brew 'git-filter-repo'
-brew 'nvm' # node version manager
+brew 'go'
+brew 'go-task' # Task is a task runner/build tool that aims to be simpler and easier to use
 brew 'markdownlint-cli2'
 brew 'maven' # Java-based project management
+brew 'minijinja-cli'
+brew 'nvm' # node version manager
 brew 'protobuf'
 brew 'qemu'
 brew 'rust'
 #brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
-brew 'go'
 
 # DevOps Tools
 # python
 brew 'python@3.13'
 brew 'pyenv'
 brew 'pandoc'
+brew 'uv'
 # docker
 brew 'colima'
 brew 'docker'

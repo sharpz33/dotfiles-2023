@@ -52,6 +52,12 @@ for config_dir in config/*/; do
   echo "Symlinked $dir_name"
 done
 
+# Ghostty macOS: Application Support config → ~/.config/ghostty/config
+mkdir -p "$HOME/Library/Application Support/com.mitchellh.ghostty"
+rm -f "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
+ln -s "$HOME/.config/ghostty/config" "$HOME/Library/Application Support/com.mitchellh.ghostty/config"
+echo "Symlinked Ghostty Application Support → ~/.config/ghostty/config"
+
 # Update Homebrew recipes
 brew update
 
