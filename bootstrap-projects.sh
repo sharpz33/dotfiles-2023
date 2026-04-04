@@ -136,14 +136,26 @@ clone_repo "clients" \
 # ─── CLIENTS – ZAGNIEŻDŻONE (200bar / publiczne) ─────────────────────────────
 log_section "CLIENTS – zagnieżdżone repos (publiczne)"
 
-clone_repo "clients/036.nowemozliwosci/036.001.terra-recycling-greenwashing-ai/web" \
+clone_repo "clients/036.nowemozliwosci/036.001.terra-recycling-greenwashing-ai/repo/terra.200bar.studio" \
   "https://github.com/200bar/terra-greenwashing-prompty.git"
+
+clone_repo "clients/036.nowemozliwosci/036.002.pgkim-krotoszyn-ai/repo/pgkim.200bar.studio" \
+  "https://github.com/200bar/pgkim-ai-prompty.git"
+
+clone_repo "clients/035.natasha-malek/035.001.mvp-zyje/repo/zyje" \
+  "git@github.com:200bar/zyje.git"
 
 clone_repo "clients/005.200bar-studio/005.019.200bar-studio-contact-form" \
   "https://github.com/200bar/200bar-studio-contact-form.git"
 
+clone_repo "clients/005.200bar-studio/005.020.claude-polymarket-bot/repo/polymarket-trading-bot" \
+  "https://github.com/discountry/polymarket-trading-bot.git"
+
 clone_repo "clients/033.gft/033.021.ai-cost-calculator" \
   "git@github.com:200bar/gft-ai-cost-calculator.git"
+
+clone_repo "clients/033.gft/033.016.pekao-legacy-transformation/repo/microsoft-camf" \
+  "https://github.com/Azure-Samples/Legacy-Modernization-Agents.git"
 
 # ─── CLIENTS – ZAGNIEŻDŻONE (GFT / wewnętrzne – wymaga VPN) ─────────────────
 log_section "CLIENTS – zagnieżdżone repos GFT (wymaga VPN + git.gft.com SSH)"
@@ -165,6 +177,9 @@ clone_gft "clients/033.gft/033.006.prompt-engineering/prompt-engineering-devops"
 
 clone_gft "clients/033.gft/033.006.prompt-engineering/_archive/prompt-engineering-course" \
   "git@git.gft.com:devops-pl/prompt-engineering-course.git"
+
+clone_gft "clients/033.gft/033.016.pekao-legacy-transformation/repo/pekao-bas-poc" \
+  "https://git.gft.com/client-pl-pekao-sa/pekao-bas-poc.git"
 
 # UWAGA: Repos poniżej (033.005.wynxx/*) mają ten sam remote co główny clients repo.
 # Oznacza to, że są lokalnymi repozytoriami lub worktrees – nie mają osobnego remote.
@@ -212,6 +227,23 @@ clone_repo "learning/gitlab-ci/demo_repos/ci-admin" \
 
 # kurs-gitlab-ci → pominięty, URL zawierał osobisty token (ustaw ręcznie)
 log_skip "pominięto: learning/gitlab-ci/kurs-gitlab-ci (URL z tokenem – sklonuj ręcznie)"
+
+# ─── SYMLINKS ─────────────────────────────────────────────────────────────────
+log_section "SYMLINKS"
+
+# gft → clients/033.gft (skrót do katalogów GFT)
+if [ -L "$PROJECTS_DIR/gft" ]; then
+  log_skip "already exists: gft → $(readlink "$PROJECTS_DIR/gft")"
+elif [ -d "$PROJECTS_DIR/gft" ]; then
+  log_warn "gft/ istnieje jako katalog (nie symlink) – sprawdź ręcznie"
+else
+  if $DRY_RUN; then
+    log_info "[dry] would symlink: gft → clients/033.gft"
+  else
+    ln -s "clients/033.gft" "$PROJECTS_DIR/gft"
+    log_success "Symlink: gft → clients/033.gft"
+  fi
+fi
 
 # ─── PODSUMOWANIE ────────────────────────────────────────────────────────────
 log_section "PODSUMOWANIE"
