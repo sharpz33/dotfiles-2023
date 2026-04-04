@@ -151,10 +151,10 @@ clone_repo "clients/005.200bar-studio/005.019.200bar-studio-contact-form" \
 clone_repo "clients/005.200bar-studio/005.020.claude-polymarket-bot/repo/polymarket-trading-bot" \
   "https://github.com/discountry/polymarket-trading-bot.git"
 
-clone_repo "clients/033.gft/033.021.ai-cost-calculator" \
+clone_gft "clients/033.gft/033.021.ai-cost-calculator" \
   "git@github.com:200bar/gft-ai-cost-calculator.git"
 
-clone_repo "clients/033.gft/033.016.pekao-legacy-transformation/repo/microsoft-camf" \
+clone_gft "clients/033.gft/033.016.pekao-legacy-transformation/repo/microsoft-camf" \
   "https://github.com/Azure-Samples/Legacy-Modernization-Agents.git"
 
 # ─── CLIENTS – ZAGNIEŻDŻONE (GFT / wewnętrzne – wymaga VPN) ─────────────────
@@ -231,18 +231,22 @@ log_skip "pominięto: learning/gitlab-ci/kurs-gitlab-ci (URL z tokenem – sklon
 # ─── SYMLINKS ─────────────────────────────────────────────────────────────────
 log_section "SYMLINKS"
 
-# gft → clients/033.gft (skrót do katalogów GFT)
-if [ -L "$PROJECTS_DIR/gft" ]; then
-  log_skip "already exists: gft → $(readlink "$PROJECTS_DIR/gft")"
-elif [ -d "$PROJECTS_DIR/gft" ]; then
-  log_warn "gft/ istnieje jako katalog (nie symlink) – sprawdź ręcznie"
-else
-  if $DRY_RUN; then
-    log_info "[dry] would symlink: gft → clients/033.gft"
+# gft → clients/033.gft (skrót do katalogów GFT – tylko z --gft)
+if $GFT_MODE; then
+  if [ -L "$PROJECTS_DIR/gft" ]; then
+    log_skip "already exists: gft → $(readlink "$PROJECTS_DIR/gft")"
+  elif [ -d "$PROJECTS_DIR/gft" ]; then
+    log_warn "gft/ istnieje jako katalog (nie symlink) – sprawdź ręcznie"
   else
-    ln -s "clients/033.gft" "$PROJECTS_DIR/gft"
-    log_success "Symlink: gft → clients/033.gft"
+    if $DRY_RUN; then
+      log_info "[dry] would symlink: gft → clients/033.gft"
+    else
+      ln -s "clients/033.gft" "$PROJECTS_DIR/gft"
+      log_success "Symlink: gft → clients/033.gft"
+    fi
   fi
+else
+  log_skip "symlink gft → clients/033.gft (wymaga --gft)"
 fi
 
 # ─── PODSUMOWANIE ────────────────────────────────────────────────────────────
