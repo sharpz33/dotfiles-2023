@@ -140,6 +140,23 @@ else
   bash "$(pwd)/duti-defaults.sh"
 fi
 
+# ─── CLAUDE CODE (native installer, auto-updates w tle) ──────────────────────
+# Native binary omija opóźnienia brew cask i npm release.
+# Aktualizuje się sam w tle — żadnego `brew upgrade` ani `npm i -g` nie trzeba.
+# Docs: https://code.claude.com/docs/en/setup
+if [ -x "$HOME/.local/bin/claude" ]; then
+  echo "Claude Code (native) już zainstalowany → $($HOME/.local/bin/claude --version 2>/dev/null || echo '?')"
+else
+  echo "Instaluję Claude Code (native installer)..."
+  curl -fsSL https://claude.ai/install.sh | bash
+fi
+
+# Sprzątanie starej instalacji npm jeśli ktoś ją wcześniej miał
+if command -v npm &>/dev/null && npm list -g --depth=0 2>/dev/null | grep -q "@anthropic-ai/claude-code"; then
+  echo "Wykryto starą npm-ową instalację Claude Code — usuwam..."
+  npm uninstall -g @anthropic-ai/claude-code
+fi
+
 # ─── RTK (Claude Code token optimizer) ────────────────────────────────────────
 if command -v rtk &>/dev/null; then
   rtk init -g --hook-only

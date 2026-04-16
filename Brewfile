@@ -297,7 +297,7 @@ cask 'antigravity'
 cask 'block-goose'
 brew 'block-goose-cli'
 cask 'claude'
-cask 'claude-code'
+# claude-code: instalowany natywnie w fresh.sh (auto-update, omija lag brew)
 cask 'codex'
 brew 'gemini-cli'
 brew 'ollama'

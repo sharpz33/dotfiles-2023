@@ -1,7 +1,9 @@
 # Global npm packages
 # Install with: npm install -g $(grep -v '^#' npm-globals.txt | tr '\n' ' ')
+#
+# Claude Code: NIE tutaj — instalowany natywnie w fresh.sh
+# (native installer ma auto-update w tle, omija opóźnienia npm/brew)
 
-@anthropic-ai/claude-code
 @openai/codex
 @pnp/cli-microsoft365
 markdownlint-cli
