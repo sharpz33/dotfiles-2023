@@ -188,6 +188,8 @@ brew 'markdownlint-cli2'
 brew 'maven' # Java-based project management
 brew 'minijinja-cli'
 brew 'nvm' # node version manager
+brew 'openjdk@17'
+brew 'openjdk@21'
 brew 'protobuf'
 brew 'qemu'
 brew 'rust'
