@@ -8,3 +8,6 @@
 @pnp/cli-microsoft365
 markdownlint-cli
 md-to-pdf
+
+# Serverless Framework v4 — wymaga `serverless login` po instalacji (interaktywne, Dashboard org: 200bar)
+serverless
