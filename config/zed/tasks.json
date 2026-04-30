@@ -1,0 +1,148 @@
+// Zed global tasks — uruchom przez `task::Spawn` (Cmd-Shift-P → "task: spawn")
+//
+// Per-project tasks: skopiuj relewantne wpisy do `.zed/tasks.json` w katalogu projektu.
+// Docs: https://zed.dev/docs/tasks
+
+[
+  // === Flutter ===
+  {
+    "label": "flutter: run (debug)",
+    "command": "flutter",
+    "args": ["run"],
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "tags": ["flutter"]
+  },
+  {
+    "label": "flutter: run (profile)",
+    "command": "flutter",
+    "args": ["run", "--profile"],
+    "use_new_terminal": true,
+    "tags": ["flutter"]
+  },
+  {
+    "label": "flutter: test",
+    "command": "flutter",
+    "args": ["test"],
+    "use_new_terminal": false,
+    "reveal": "always",
+    "tags": ["flutter"]
+  },
+  {
+    "label": "flutter: pub get",
+    "command": "flutter",
+    "args": ["pub", "get"],
+    "use_new_terminal": false,
+    "reveal": "no_focus",
+    "tags": ["flutter"]
+  },
+  {
+    "label": "flutter: clean",
+    "command": "flutter",
+    "args": ["clean"],
+    "use_new_terminal": false,
+    "tags": ["flutter"]
+  },
+  {
+    "label": "flutter: doctor",
+    "command": "flutter",
+    "args": ["doctor", "-v"],
+    "use_new_terminal": false,
+    "reveal": "always",
+    "tags": ["flutter"]
+  },
+  {
+    "label": "flutter: build apk",
+    "command": "flutter",
+    "args": ["build", "apk", "--release"],
+    "use_new_terminal": true,
+    "tags": ["flutter"]
+  },
+  {
+    "label": "dart: devtools",
+    "command": "dart",
+    "args": ["devtools"],
+    "use_new_terminal": true,
+    "tags": ["flutter"]
+  },
+
+  // === Android emulator (uruchamia AVD bez otwierania całego AS) ===
+  {
+    "label": "android: list AVDs",
+    "command": "$HOME/Library/Android/sdk/emulator/emulator",
+    "args": ["-list-avds"],
+    "use_new_terminal": false,
+    "reveal": "always",
+    "tags": ["android"]
+  },
+  {
+    "label": "android: start AVD (Pixel)",
+    "command": "$HOME/Library/Android/sdk/emulator/emulator",
+    "args": ["-avd", "Pixel_API_34"],
+    "use_new_terminal": true,
+    "tags": ["android"]
+  },
+
+  // === Go ===
+  {
+    "label": "go: test ./...",
+    "command": "go",
+    "args": ["test", "./..."],
+    "reveal": "always",
+    "tags": ["go"]
+  },
+  {
+    "label": "go: build",
+    "command": "go",
+    "args": ["build", "./..."],
+    "reveal": "always",
+    "tags": ["go"]
+  },
+
+  // === Python (ruff) ===
+  {
+    "label": "ruff: check",
+    "command": "ruff",
+    "args": ["check", "."],
+    "reveal": "always",
+    "tags": ["python"]
+  },
+  {
+    "label": "ruff: format",
+    "command": "ruff",
+    "args": ["format", "."],
+    "reveal": "no_focus",
+    "tags": ["python"]
+  },
+
+  // === Terraform ===
+  {
+    "label": "tf: init",
+    "command": "terraform",
+    "args": ["init"],
+    "reveal": "always",
+    "tags": ["terraform"]
+  },
+  {
+    "label": "tf: plan",
+    "command": "terraform",
+    "args": ["plan"],
+    "reveal": "always",
+    "tags": ["terraform"]
+  },
+  {
+    "label": "tf: validate",
+    "command": "terraform",
+    "args": ["validate"],
+    "reveal": "always",
+    "tags": ["terraform"]
+  },
+
+  // === Git / lazygit ===
+  {
+    "label": "lazygit",
+    "command": "lazygit",
+    "use_new_terminal": true,
+    "reveal": "always"
+  }
+]

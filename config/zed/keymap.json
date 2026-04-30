@@ -1,0 +1,100 @@
+// Zed keymap — kickstart.nvim parity (leader = space)
+//
+// Docs: https://zed.dev/docs/key-bindings · default: command palette → "open default keymap"
+// Vim contexts: VimControl, vim_mode == normal/visual/insert/operator/replace
+// Source: ~/.config/nvim/init.lua + custom/plugins/
+
+[
+  // === GLOBAL: window navigation (C-h/j/k/l) ===
+  {
+    "context": "Editor && VimControl && !menu",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight"
+    }
+  },
+
+  // === INSERT MODE: jk → escape ===
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j k": "vim::NormalBefore",
+      "k j": "vim::NormalBefore"
+    }
+  },
+
+  // === NORMAL/VISUAL MODE: leader-key shortcuts (space-prefix) ===
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      // <Esc> clear search highlight (kickstart line 164)
+      "escape": ["workspace::SendKeystrokes", "escape : nohlsearch enter"],
+
+      // === Telescope-style search (<leader>s*) ===
+      "space s f": "file_finder::Toggle",
+      "space s g": "pane::DeploySearch",
+      "space s w": "pane::DeploySearch",
+      "space s d": "diagnostics::Deploy",
+      "space s .": "projects::OpenRecent",
+      "space s h": "command_palette::Toggle",
+      "space s k": "command_palette::Toggle",
+      "space s r": "search::SelectPrevQuery",
+      "space s s": "command_palette::Toggle",
+      "space space": "tab_switcher::Toggle",
+      "space /": "buffer_search::Deploy",
+
+      // === LSP (<leader>r/c/D/d/w/q + g*) ===
+      "space r n": "editor::Rename",
+      "space c a": "editor::ToggleCodeActions",
+      "space f": "editor::Format",
+      "space q": "diagnostics::Deploy",
+      "space D": "editor::GoToTypeDefinition",
+      "space d s": "outline::Toggle",
+      "space w s": "project_symbols::Toggle",
+
+      // === Goto (g*) ===
+      "g d": "editor::GoToDefinition",
+      "g D": "editor::GoToDeclaration",
+      "g r": "editor::FindAllReferences",
+      "g I": "editor::GoToImplementation",
+
+      // === Panele ===
+      "space e": "workspace::ToggleLeftDock",
+      "space o": "outline_panel::ToggleFocus",
+      "space t": "terminal_panel::ToggleFocus",
+
+      // === Agent panel (Claude Agent + Codex) ===
+      "space a": "agent::ToggleFocus",
+      "space a n": ["agent::NewExternalAgentThread", { "agent": { "custom": { "name": "claude-acp" } } }],
+      "space a c": ["agent::NewExternalAgentThread", { "agent": { "custom": { "name": "codex-acp" } } }]
+    }
+  },
+
+  // === EmptyPane: skróty bez otwartego pliku ===
+  {
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      "space s f": "file_finder::Toggle",
+      "space space": "tab_switcher::Toggle",
+      "space e": "workspace::ToggleLeftDock"
+    }
+  },
+
+  // === Markdown preview (zachowane ze starego configu) ===
+  {
+    "context": "Editor && extension == md",
+    "bindings": {
+      "cmd-shift-v": "markdown::OpenPreview"
+    }
+  },
+
+  // === Workspace-level: agent shortcut + base VSCode keymap (cmd-p/cmd-shift-p/cmd-`) ===
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-alt-c": ["agent::NewExternalAgentThread", { "agent": { "custom": { "name": "claude-acp" } } }]
+    }
+  }
+]

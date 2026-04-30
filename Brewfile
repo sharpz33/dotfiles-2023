@@ -49,6 +49,14 @@ cask 'font-roboto'
 cask 'font-source-code-pro-for-powerline'
 cask 'font-source-code-pro'
 cask 'font-source-sans-3'
+# Coding fonts (Zed/Ghostty/nvim) — testujemy, zostawimy 1-2
+cask 'font-maple-mono-nf'
+cask 'font-monaspace-nf'
+cask 'font-jetbrains-mono-nerd-font'
+cask 'font-geist-mono-nerd-font'
+cask 'font-commit-mono-nerd-font'
+cask 'font-iosevka-nerd-font'
+# Berkeley Mono (płatny, trial OTF instalujemy ręcznie do ~/Library/Fonts)
 
 
 # GUI General Tools
@@ -97,6 +105,7 @@ brew 'ranger' # file manager
 brew 'spotify_player' # Command driven spotify player
 brew 'tmux'
 brew 'weasyprint' # Convert HTML to PDF
+brew 'poppler' # PDF tools (pdftotext, pdfinfo) — używane przez asystentów (aibl, aiul)
 brew 'yt-dlp'
 brew 'zoxide' # Shell extension to navigate your filesystem faster
 #brew 'browsh'
@@ -114,7 +123,7 @@ mas 'Kindle', id: 405399194
 mas 'Numbers', id: 409203825
 mas 'Pages', id: 409201541
 #mas 'Perplexity: Ask Anything', id: 6714467650
-#mas 'RSA Authenticator (SecurID)', id: 318038618  
+mas 'RSA Authenticator (SecurID)', id: 318038618  
 mas 'Save to Raindrop.io', id: 1549370672
 #mas 'Sync Folders', id: 530573877
 #mas 'Tab Space', id: 1473726602
@@ -160,6 +169,9 @@ brew 'smudge/smudge/nightlight'
 # cask 'setapp'
 cask 'todoist-app'
 #cask 'logseq'
+# Świadomie nieinstalowane (były wcześniej, wywalone podczas cleanup):
+# - cask 'equinox' (davidkaya/tap) — dynamiczne tapety macOS, nieużywane od 2026-04
+
 #brew 'carlocab/personal/unrar'
 #brew 'libass'
 #brew 'tesseract'
@@ -184,6 +196,9 @@ brew 'jq'
 brew 'git-filter-repo'
 brew 'go'
 brew 'go-task' # Task is a task runner/build tool that aims to be simpler and easier to use
+brew 'gopls' # Go LSP (Zed/nvim)
+brew 'shfmt' # Bash formatter (Zed/nvim format-on-save)
+brew 'ruff' # Python LSP + formatter (Zed/nvim format-on-save)
 brew 'markdownlint-cli2'
 brew 'maven' # Java-based project management
 brew 'minijinja-cli'
@@ -217,6 +232,7 @@ brew 'vfkit' #VMs
 brew 'azure-cli'
 brew 'bicep'
 brew 'aztfexport'
+brew 'cloudflare-wrangler' # Cloudflare Workers/Pages CLI
 cask 'gcloud-cli'
 # databases
 brew 'libpq'
@@ -228,6 +244,7 @@ brew 'terraformer'
 brew 'tfsec'
 ###
 cask 'citrix-workspace'
+brew 'git-delta'
 brew 'stoken'
 brew 'openvpn'
 brew 'sops' #Simple And Flexible Tool For Managing Secrets
@@ -254,7 +271,7 @@ brew 'aws-iam-authenticator'
 #brew 'nmap'
 #brew 'shellcheck'
 #brew 'hashicorp/tap/consul'
-#brew 'hashicorp/tap/terraform-ls'
+brew 'hashicorp/tap/terraform-ls' # Terraform LSP (Zed/nvim)
 #brew 'weaveworks/tap/eksctl'
 #cask 'git-credential-manager-core'
 #cask 'insomnia'
@@ -330,3 +347,10 @@ brew 'neovim'
 brew 'sleef'
 brew 'tcl-tk'
 #cask 'microsoft-auto-update'
+
+### CBD project
+cask 'copilot-cli@prerelease' # GH Copilot CLI prerelease (cask, nie brew)
+
+# Mobile / Flutter
+cask 'flutter' # Flutter SDK (zawiera Dart)
+cask 'android-studio' # AVD manager + heavy debug obok Zed

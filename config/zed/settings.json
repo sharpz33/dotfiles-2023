@@ -1,20 +1,183 @@
-// Zed settings
+// Zed settings — synced via ~/.dotfiles/config/zed/
 //
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
+// Docs: https://zed.dev/docs/configuring-zed
+// Defaults: command palette → "open default settings"
 //
-// To see all of Zed's default settings without changing your
-// custom settings, run the `open default settings` command
-// from the command palette or from `Zed` application menu.
+// Keybindings: ./keymap.json (kickstart.nvim parity)
+
 {
-  "vim_mode": true,
-  "soft_wrap": "editor_width",
-  "telemetry": {
-    "diagnostics": false,
-    "metrics": false
-  },
+  // === Editor base ===
   "base_keymap": "VSCode",
-  "theme": "Atelier Lakeside Dark",
+  "vim_mode": true,
+  "vim": {
+    "use_system_clipboard": "always",
+    "use_smartcase_find": true
+  },
+  "relative_line_numbers": true,
+  "soft_wrap": "editor_width",
+  "ensure_final_newline_on_save": true,
+  "remove_trailing_whitespace_on_save": true,
+  "telemetry": { "diagnostics": false, "metrics": false },
+  "auto_update": true,
+  "restore_on_startup": "last_workspace",
+
+  // === Theme — auto-switch z macOS Appearance ===
+  // Zainstalowane do testów: gruvbox-material, rose-pine, catppuccin, tokyo-night, ayu, solarized, monokai-pro
+  // Pary które masz dostępne (po install ext): podmień nazwy poniżej.
+  "theme": {
+    "mode": "system",
+    "light": "Gruvbox Material Light",
+    "dark": "Gruvbox Material Dark"
+  },
+  "icon_theme": {
+    "mode": "system",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
+
+  // === Fonty ===
+  // Buffer: Maple Mono NF (default). Inne zainstalowane: Monaspace Neon, JetBrainsMono Nerd Font,
+  // GeistMono Nerd Font, CommitMono Nerd Font, Iosevka Nerd Font, BerkeleyMonoTrial-Regular.
   "ui_font_size": 16,
-  "buffer_font_size": 16
+  "buffer_font_family": "Maple Mono NF",
+  "buffer_font_size": 16,
+  "buffer_line_height": "comfortable",
+  "terminal": {
+    "font_family": "Maple Mono NF",
+    "font_size": 14,
+    "line_height": "standard",
+    "shell": { "program": "zsh" }
+  },
+
+  // === Format on save (globalnie ON) — per-języki niżej ===
+  "format_on_save": "on",
+  "formatter": "language_server",
+
+  // === Inlay hints, git blame, whitespace ===
+  "inlay_hints": { "enabled": true, "show_type_hints": true, "show_parameter_hints": true },
+  "git": { "inline_blame": { "enabled": true, "delay_ms": 600 } },
+  "show_whitespaces": "selection",
+  "show_wrap_guides": true,
+  "wrap_guides": [80, 100, 120],
+
+  // === UI ===
+  "tab_bar": { "show": true },
+  "scrollbar": { "show": "auto" },
+  "centered_layout": { "left_padding": 0.15, "right_padding": 0.15 },
+  "project_panel": { "default_width": 240, "dock": "left" },
+  "outline_panel": { "default_width": 280, "dock": "right" },
+  "terminal": { "dock": "bottom" },
+  "tabs": { "git_status": true, "file_icons": true },
+
+  // === AI: edit prediction (inline tab-complete) = GH Copilot ===
+  "edit_predictions": {
+    "provider": "copilot",
+    "mode": "auto",
+    "disabled_globs": [".env", ".env.*", "*.secret", "*.pem", "*.key"]
+  },
+
+  // === AI: agent panel ===
+  // Default = Claude Agent przez ACP (używa subskrypcji Claude Code).
+  // Codex dostępny jako alternatywny external agent (ChatGPT Enterprise).
+  "agent": {
+    "default_profile": "ask",
+    "version": "2"
+  },
+  "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    },
+    "codex-acp": {
+      "type": "registry"
+    }
+  },
+
+  // === Auto-install extensions ===
+  // Languages + Themes do testów. Po wyborze 1-2 można pozostałe odznaczyć (false → ext zostanie).
+  "auto_install_extensions": {
+    // Languages
+    "terraform": true,
+    "ruby": true,
+    "dart": true,
+    "just": true,
+    "dockerfile": true,
+    "html": true,
+    "make": true,
+    "mermaid": true,
+    "git-firefly": true,
+    // Themes (testujemy kilka tygodni, potem czyścimy)
+    "gruvbox-material": true,
+    "catppuccin": true,
+    "rose-pine": true,
+    "tokyo-night": true,
+    "ayu": true,
+    "solarized-themes": true,
+    "monokai": true
+  },
+
+  // === LSP overrides ===
+  "lsp": {
+    "terraform-ls": {
+      "initialization_options": {
+        "experimentalFeatures": { "prefillRequiredFields": true }
+      }
+    },
+    "gopls": {
+      "initialization_options": {
+        "usePlaceholders": true,
+        "completeUnimported": true,
+        "staticcheck": true
+      }
+    }
+  },
+
+  // === Per-language settings ===
+  "languages": {
+    // Python — ruff jako LSP + formatter, organize imports on save
+    "Python": {
+      "tab_size": 4,
+      "language_servers": ["ruff", "pyright", "!pylsp", "..."],
+      "formatter": { "language_server": { "name": "ruff" } },
+      "code_actions_on_format": { "source.organizeImports.ruff": true },
+      "format_on_save": "on"
+    },
+    // JS/TS — prettier external (auto-pickup z projektu), ESLint code action
+    "JavaScript": { "tab_size": 2, "format_on_save": "on" },
+    "TypeScript": { "tab_size": 2, "format_on_save": "on" },
+    "TSX": { "tab_size": 2, "format_on_save": "on" },
+    "JSON": { "tab_size": 2, "format_on_save": "on" },
+    "JSONC": { "tab_size": 2, "format_on_save": "on" },
+    "YAML": { "tab_size": 2, "format_on_save": "on" },
+    // Go — gofmt via gopls
+    "Go": { "tab_size": 4, "formatter": "language_server", "format_on_save": "on" },
+    // Ruby — ruby-lsp (nowy standard, NIE solargraph)
+    "Ruby": {
+      "tab_size": 2,
+      "language_servers": ["ruby-lsp", "!solargraph", "!rubocop", "..."],
+      "formatter": "language_server",
+      "format_on_save": "on"
+    },
+    // Terraform — terraform-ls
+    "Terraform": { "tab_size": 2, "formatter": "language_server", "format_on_save": "on" },
+    // Bash — shfmt jako external
+    "Shell Script": {
+      "tab_size": 2,
+      "formatter": {
+        "external": {
+          "command": "shfmt",
+          "arguments": ["-i", "2", "-ci", "-bn", "-filename", "{buffer_path}"]
+        }
+      },
+      "format_on_save": "on"
+    },
+    // Dart / Flutter
+    "Dart": { "tab_size": 2, "formatter": "language_server", "format_on_save": "on" },
+    // Markdown — soft wrap, no trailing whitespace removal (whitespace bywa składniowy w MD)
+    "Markdown": {
+      "tab_size": 2,
+      "soft_wrap": "editor_width",
+      "remove_trailing_whitespace_on_save": false,
+      "format_on_save": "off"
+    }
+  }
 }
