@@ -46,7 +46,8 @@
     "font_family": "Maple Mono NF",
     "font_size": 14,
     "line_height": "standard",
-    "shell": { "program": "zsh" }
+    "shell": { "program": "zsh" },
+    "dock": "bottom"
   },
 
   // === Format on save (globalnie ON) — per-języki niżej ===
@@ -66,7 +67,6 @@
   "centered_layout": { "left_padding": 0.15, "right_padding": 0.15 },
   "project_panel": { "default_width": 240, "dock": "left" },
   "outline_panel": { "default_width": 280, "dock": "right" },
-  "terminal": { "dock": "bottom" },
   "tabs": { "git_status": true, "file_icons": true },
 
   // === AI: edit prediction (inline tab-complete) = GH Copilot ===
