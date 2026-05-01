@@ -81,11 +81,49 @@
     }
   },
 
-  // === Markdown preview (zachowane ze starego configu) ===
+  // === Markdown: preview w obecnym tabie (Cmd-Shift-V) + preview na bok (Cmd-Shift-M) ===
   {
     "context": "Editor && extension == md",
     "bindings": {
-      "cmd-shift-v": "markdown::OpenPreview"
+      "cmd-shift-v": "markdown::OpenPreview",
+      "cmd-shift-m": "markdown::OpenPreviewToTheSide",
+      "space m p": "markdown::OpenPreviewToTheSide",
+      "space m v": "markdown::OpenPreview"
+    }
+  },
+
+  // === MarkdownPreview: nawigacja, search, close ===
+  // Preview to read-only view, własne bindy (vim Editor/VimControl tu nie matchuje)
+  {
+    "context": "MarkdownPreview",
+    "bindings": {
+      // Close
+      "q": "pane::CloseActiveItem",
+      "cmd-w": "pane::CloseActiveItem",
+      // Toggle przez Cmd-Shift-V → wraca do edytora (zamyka preview)
+      "cmd-shift-v": "pane::CloseActiveItem",
+
+      // Search w preview
+      "/": "buffer_search::Deploy",
+      "cmd-f": "buffer_search::Deploy",
+      "n": "search::SelectNextMatch",
+      "shift-n": "search::SelectPrevMatch",
+
+      // Scroll vim-style
+      "j": "editor::LineDown",
+      "k": "editor::LineUp",
+      "g g": "editor::MoveToBeginning",
+      "shift-g": "editor::MoveToEnd",
+      "ctrl-d": "editor::PageDown",
+      "ctrl-u": "editor::PageUp",
+      "ctrl-f": "editor::PageDown",
+      "ctrl-b": "editor::PageUp",
+
+      // Pane navigation (spójne z resztą)
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp"
     }
   },
 
@@ -94,6 +132,16 @@
     "context": "Workspace",
     "bindings": {
       "cmd-alt-c": ["agent::NewExternalAgentThread", { "agent": { "custom": { "name": "claude-acp" } } }]
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-alt-cmd-shift-right": [
+        "workspace::MoveItemToPaneInDirection",
+        {
+          "direction": "right"
+        }
+      ]
     }
   }
 ]
