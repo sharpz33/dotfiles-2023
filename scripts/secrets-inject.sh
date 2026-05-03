@@ -25,10 +25,12 @@ if [ ! -f "$TEMPLATE" ]; then
   exit 1
 fi
 
-# Backup obecnego ~/.secrets
+# Backup obecnego ~/.secrets do dotfiles/tmp (gitignored)
 if [ -f "$TARGET" ]; then
-  BACKUP="$TARGET.bak.$(date +%Y%m%d-%H%M%S)"
+  mkdir -p "$DOTFILES_DIR/tmp"
+  BACKUP="$DOTFILES_DIR/tmp/secrets.bak.$(date +%Y%m%d-%H%M%S)"
   cp "$TARGET" "$BACKUP"
+  chmod 600 "$BACKUP"
   echo "→ backup: $BACKUP"
 fi
 

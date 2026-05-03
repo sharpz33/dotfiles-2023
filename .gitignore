@@ -25,6 +25,7 @@ plugins/
 # Generated secrets (NIGDY do repo). Template .secrets.tmpl JEST committed.
 .secrets
 .secrets.bak.*
+.secrets.tmpl.bak.*
 
 # Runtime logs / tmp
 tmp/
