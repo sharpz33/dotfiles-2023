@@ -21,3 +21,14 @@ plugins/
 
 # Claude Code local settings
 .claude/
+
+# Generated secrets (NIGDY do repo). Template .secrets.tmpl JEST committed.
+.secrets
+.secrets.bak.*
+
+# Runtime logs / tmp
+tmp/
+
+# Backupy zshrc generowane przez fresh-omarchy.sh
+.zshrc.bak.*
+.p10k.zsh.bak.*

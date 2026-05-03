@@ -1,0 +1,21 @@
+# Arch / Omarchy — pakiety z AUR (yay -S --needed --noconfirm)
+# Tylko to czego brak w official repo lub gdzie AUR ma świeższą wersję.
+
+# 1Password CLI — secrets via op inject
+1password-cli
+
+# Google Cloud SDK
+google-cloud-cli
+
+# nvm — Node Version Manager (alternatywa: curl install w fresh-omarchy.sh)
+nvm
+
+# Powerlevel10k (theme dla zsh)
+zsh-theme-powerlevel10k-git
+
+# Zed editor
+# zed (oficjalne) | zed-bin (binary, szybciej) | zed-preview (nightly)
+zed-bin
+
+# Obsidian (notatki, vault w ~/vaults/obsidian)
+obsidian

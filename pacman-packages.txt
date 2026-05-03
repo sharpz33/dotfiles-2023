@@ -1,0 +1,58 @@
+# Arch / Omarchy — pakiety z oficjalnych repo (pacman -S --needed)
+# Min set: tylko to co potrzebne dla CC + skille + workflow Łukasza.
+# Komentarze i puste linie ignorowane przez fresh-omarchy.sh.
+
+# ── Base / build ──────────────────────────────
+base-devel
+git
+curl
+wget
+rsync
+openssh
+unzip
+which
+
+# ── Shell ────────────────────────────────────
+zsh
+bash
+
+# ── Languages / runtimes ─────────────────────
+python
+python-pip
+pyenv
+
+# ── Search / files ───────────────────────────
+ripgrep
+fd
+jq
+fzf
+bat
+eza
+tree
+htop
+
+# ── Editor / dev ─────────────────────────────
+neovim
+github-cli
+
+# ── Media / docs ─────────────────────────────
+ffmpeg
+yt-dlp
+pandoc-cli
+texlive-core
+texlive-latexextra
+
+# ── Cloud CLIs (Arch ma w community) ─────────
+aws-cli-v2
+
+# ── Optional ergonomy ────────────────────────
+zoxide
+lazygit
+p7zip
+
+# ── Sync (Obsidian vault, dotfiles) ──────────
+# Syncthing — opcjonalny: P2P real-time między Mac i Omarchy.
+# Alternatywa do rsync ad-hoc (scripts/sync-obsidian-vault.sh).
+syncthing
+avahi
+nss-mdns

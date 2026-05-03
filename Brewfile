@@ -87,6 +87,7 @@ cask 'textsniper'
 
 # CLI/TUI General Tools
 cask '1password-cli' # 1Password CLI
+brew 'aerc' #terminal mail client
 brew 'btop' # Resource monitor
 brew 'dust' # More intuitive version of du in rust
 brew 'duti' # Select default apps for documents and URL schemes on macOS
@@ -148,6 +149,7 @@ cask 'spotify'
 cask 'discord' 
 cask 'maccy' # clipboard manager
 cask 'mactex-no-gui' # Full TeX Live distribution without GUI applications
+cask 'mimestream' # Native app email client for Gmail
 cask 'notion'
 #cask 'nozbe'
 cask 'obs'

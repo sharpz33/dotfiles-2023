@@ -65,7 +65,7 @@
   "tab_bar": { "show": true },
   "scrollbar": { "show": "auto" },
   "centered_layout": { "left_padding": 0.15, "right_padding": 0.15 },
-  "project_panel": { "default_width": 240, "dock": "left" },
+  "project_panel": { "default_width": 240, "dock": "right" },
   "outline_panel": { "default_width": 280, "dock": "right" },
   "tabs": { "git_status": true, "file_icons": true },
 
