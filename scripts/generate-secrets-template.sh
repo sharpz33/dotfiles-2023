@@ -36,7 +36,22 @@ SECRETS="$HOME/.secrets"
 DOTFILES_DIR="$HOME/.dotfiles"
 TEMPLATE="$DOTFILES_DIR/.secrets.tmpl"
 
-[ -f "$SECRETS" ] || { echo "✗ Brak $SECRETS"; exit 1; }
+if [ ! -f "$SECRETS" ]; then
+  echo "✗ Brak $SECRETS"
+  echo
+  if [ "$(uname -s)" = "Linux" ]; then
+    echo "Wygląda że jesteś na Linuxie/Omarchy. Ten skrypt jest Mac-side — parsuje"
+    echo "istniejący plain $SECRETS żeby wygenerować template do 1Password."
+    echo
+    echo "Tutaj odpal odwrotny kierunek (template → .secrets przez op inject):"
+    echo "  eval \$(op signin)"
+    echo "  $DOTFILES_DIR/scripts/secrets-inject.sh"
+  else
+    echo "Na Macu: utwórz $SECRETS z env varami formatu 'export VAR=value' najpierw,"
+    echo "potem odpal ten skrypt z --create żeby zmigrować do 1Password."
+  fi
+  exit 1
+fi
 
 # Tryb create/check wymaga op CLI zalogowane
 if [ "$MODE" != "stub" ]; then
