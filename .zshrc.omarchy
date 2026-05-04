@@ -66,5 +66,10 @@ fi
 # Google Cloud SDK (Arch instaluje do /etc/profile.d/)
 [ -f /etc/profile.d/google-cloud-cli.sh ] && source /etc/profile.d/google-cloud-cli.sh
 
+# 1Password SSH agent (klucze trzymane w 1P, biometria zamiast passphrase)
+if [ -S "$HOME/.1password/agent.sock" ]; then
+  export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
+fi
+
 # Sekrety (gitignored, generowane przez `op inject` — patrz ~/.dotfiles/scripts/secrets-inject.sh)
 [ -f "$HOME/.secrets" ] && source "$HOME/.secrets"
