@@ -137,16 +137,16 @@ clone_repo "clients" \
 log_section "CLIENTS – zagnieżdżone repos (publiczne)"
 
 clone_repo "clients/036.nowemozliwosci/036.001.terra-recycling-greenwashing-ai/repo/terra.200bar.studio" \
-  "https://github.com/200bar/terra-greenwashing-prompty.git"
+  "git@github.com:200bar/terra-greenwashing-prompty.git"
 
 clone_repo "clients/036.nowemozliwosci/036.002.pgkim-krotoszyn-ai/repo/pgkim.200bar.studio" \
-  "https://github.com/200bar/pgkim-ai-prompty.git"
+  "git@github.com:200bar/pgkim-ai-prompty.git"
 
 clone_repo "clients/035.natasha-malek/035.001.mvp-zyje/repo/zyje" \
   "git@github.com:200bar/zyje.git"
 
 clone_repo "clients/005.200bar-studio/005.019.200bar-studio-contact-form" \
-  "https://github.com/200bar/200bar-studio-contact-form.git"
+  "git@github.com:200bar/200bar-studio-contact-form.git"
 
 clone_repo "clients/005.200bar-studio/005.020.claude-polymarket-bot/repo/polymarket-trading-bot" \
   "https://github.com/discountry/polymarket-trading-bot.git"
