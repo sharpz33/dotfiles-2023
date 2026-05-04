@@ -35,10 +35,23 @@ EXPORTS=${EXPORTS:-0}
 ok "~/.secrets — $EXPORTS eksportów"
 
 # 2. SSH do GitHub
-if ssh -o ConnectTimeout=5 -o BatchMode=yes -T git@github.com 2>&1 | grep -q "successfully authenticated"; then
-  ok "GitHub SSH działa"
+# StrictHostKeyChecking=accept-new — auto-accept fingerprint przy pierwszym połączeniu
+# (klasyczny problem świeżej maszyny: brak github.com w known_hosts → BatchMode blokuje).
+SSH_OUT=$(ssh -o ConnectTimeout=5 \
+              -o StrictHostKeyChecking=accept-new \
+              -o BatchMode=yes \
+              -T git@github.com 2>&1 || true)
+if echo "$SSH_OUT" | grep -q "successfully authenticated"; then
+  ok "GitHub SSH działa: $(echo "$SSH_OUT" | head -1)"
 else
-  err "SSH do GitHub nie działa. Dodaj klucz: cat ~/.ssh/id_ed25519.pub → github.com/settings/keys"
+  err "SSH do GitHub nie działa. Output:"
+  echo "$SSH_OUT" | sed 's/^/    /'
+  echo
+  echo "  Diagnostyka:"
+  echo "    1. Klucz publiczny: cat ~/.ssh/id_ed25519.pub"
+  echo "    2. Dodaj na: https://github.com/settings/keys"
+  echo "    3. Test ręcznie: ssh -T git@github.com"
+  echo "    4. Verbose: ssh -vT git@github.com 2>&1 | grep -E 'Offering|denied'"
   exit 1
 fi
 
