@@ -21,6 +21,43 @@ err()   { echo -e "${RED}✗${NC} $1"; }
 log()   { echo -e "${BLU}→${NC} $1"; }
 section(){ echo; echo -e "${BLD}── $1 ──${NC}"; }
 
+# ─── SYMLINKS (idempotent) ───────────────────────────────────────────────────
+# Jeśli ktoś nie odpalił fresh-omarchy.sh albo .zshrc się rozjechał — naprawiamy.
+section "SYMLINKS"
+
+# .zshrc → dotfiles/.zshrc.omarchy
+if [ -L "$HOME/.zshrc" ] && [ "$(readlink "$HOME/.zshrc")" = "$DOTFILES_DIR/.zshrc.omarchy" ]; then
+  ok "~/.zshrc → .zshrc.omarchy (już)"
+else
+  [ -e "$HOME/.zshrc" ] && {
+    BAK="$HOME/.zshrc.bak.$(date +%s)"
+    mv "$HOME/.zshrc" "$BAK"
+    warn "backup: $BAK"
+  }
+  ln -s "$DOTFILES_DIR/.zshrc.omarchy" "$HOME/.zshrc"
+  ok "~/.zshrc → $DOTFILES_DIR/.zshrc.omarchy"
+fi
+
+# .p10k.zsh
+if [ -f "$DOTFILES_DIR/.p10k.zsh" ] && [ ! -L "$HOME/.p10k.zsh" ]; then
+  [ -e "$HOME/.p10k.zsh" ] && mv "$HOME/.p10k.zsh" "$HOME/.p10k.zsh.bak.$(date +%s)"
+  ln -s "$DOTFILES_DIR/.p10k.zsh" "$HOME/.p10k.zsh"
+  ok "~/.p10k.zsh → dotfiles"
+fi
+
+# ~/.config/* (nvim, zed, ghostty, wezterm)
+mkdir -p "$HOME/.config"
+for config_dir in "$DOTFILES_DIR"/config/*/; do
+  [ -d "$config_dir" ] || continue
+  dir_name=$(basename "$config_dir")
+  if [ -L "$HOME/.config/$dir_name" ] && [ "$(readlink "$HOME/.config/$dir_name")" = "$DOTFILES_DIR/config/$dir_name" ]; then
+    continue   # już dobrze, milcz
+  fi
+  [ -e "$HOME/.config/$dir_name" ] && mv "$HOME/.config/$dir_name" "$HOME/.config/$dir_name.bak.$(date +%s)"
+  ln -s "$DOTFILES_DIR/config/$dir_name" "$HOME/.config/$dir_name"
+  ok "~/.config/$dir_name → dotfiles"
+done
+
 # ─── PRE-FLIGHT ──────────────────────────────────────────────────────────────
 section "PRE-FLIGHT"
 [ "$(uname -s)" = "Linux" ] || { err "skrypt dla Linuxa"; exit 1; }
