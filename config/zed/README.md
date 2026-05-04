@@ -69,7 +69,30 @@ Zasada: **kickstart.nvim parity** — leader = `space`, te same skróty co w `~/
 | Find in files | `Cmd-Shift-f` |
 | Toggle sidebar | `Cmd-b` |
 | Toggle terminal | `Cmd-\`` |
-| Markdown preview | `Cmd-Shift-v` (w pliku `.md`) |
+
+### Markdown preview
+
+Z edytora `.md`:
+
+| Akcja | Skrót |
+|---|---|
+| Preview w nowym tabie | `Cmd-Shift-V` lub `space m v` |
+| Preview side-by-side (split right) | `Cmd-Shift-M` lub `space m p` |
+
+W preview (read-only view, własny kontekst):
+
+| Akcja | Skrót |
+|---|---|
+| Zamknij preview | `q` lub `Cmd-W` lub `Cmd-Shift-V` |
+| Search w preview | `/` lub `Cmd-F` |
+| Next / prev match | `n` / `Shift-N` |
+| Scroll line down/up | `j` / `k` |
+| Top / bottom | `g g` / `Shift-G` |
+| Half-page down/up | `Ctrl-D` / `Ctrl-U` |
+| Full-page down/up | `PgDn`/`PgUp` lub `Shift-J`/`Shift-K` |
+| Pane navigation | `Ctrl-h/j/k/l` |
+
+> `Ctrl-F`/`Ctrl-B` celowo nieużyte — Cocoa łapie je systemowo i nadpisuje binding.
 
 ---
 

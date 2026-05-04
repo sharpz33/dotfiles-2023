@@ -116,8 +116,10 @@
       "shift-g": "editor::MoveToEnd",
       "ctrl-d": "editor::PageDown",
       "ctrl-u": "editor::PageUp",
-      "ctrl-f": "editor::PageDown",
-      "ctrl-b": "editor::PageUp",
+      "pagedown": "editor::PageDown",
+      "pageup": "editor::PageUp",
+      "shift-j": "editor::PageDown",
+      "shift-k": "editor::PageUp",
 
       // Pane navigation (spójne z resztą)
       "ctrl-h": "workspace::ActivatePaneLeft",
