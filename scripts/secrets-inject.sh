@@ -46,8 +46,10 @@ else
 fi
 
 # ─── VERIFY ──────────────────────────────────────────────────────────────────
-# Sprawdź ile zmiennych ma TODO (niezuzupełnione)
-TODOS=$(grep -c "TODO" "$TARGET" 2>/dev/null || echo 0)
+# Sprawdź ile zmiennych ma TODO (niezuzupełnione).
+# UWAGA: grep -c bez matchów daje exit 1 i stdout="0" — || echo 0 dawało "0\n0".
+TODOS=$(grep -c "TODO" "$TARGET" 2>/dev/null)
+TODOS=${TODOS:-0}
 if [ "$TODOS" -gt 0 ]; then
   echo "⚠ $TODOS zmiennych ma 'TODO' w wartości — sprawdź template."
 fi
